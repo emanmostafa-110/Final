@@ -11,6 +11,9 @@ import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.finalseizures.MyRequest
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_registration.*
+import kotlinx.android.synthetic.main.activity_registration.et_email
 import org.json.JSONObject
 
 class Registration : AppCompatActivity() {
@@ -19,50 +22,22 @@ class Registration : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
-        val haveAccount = findViewById<TextView>(R.id.tv_haveAccount)
-        val registration = findViewById<Button>(R.id.btn_registration)
-        val et_email = findViewById<EditText>(R.id.et_email)
-        val et_password = findViewById<EditText>(R.id.et_pass)
-        val date = findViewById<EditText>(R.id.et_birthdate)
-        val et_city = findViewById<EditText>(R.id.et_city)
-        val et_country = findViewById<EditText>(R.id.et_country)
-        val et_gender = findViewById<EditText>(R.id.et_gender)
-        val et_nationalID = findViewById<EditText>(R.id.et_nationalID)
-        val et_firstName = findViewById<EditText>(R.id.et_fname)
-        val et_lastName = findViewById<EditText>(R.id.et_lname)
-        val et_phone = findViewById<EditText>(R.id.et_phone)
 
 
-        val btn_register= findViewById<Button>(R.id.btn_login)
-        btn_register.setOnClickListener {
-
+        btn_registration.setOnClickListener {
 
             if (validate()) {
 
                 // data we send in the request: Email and password
                 val params = JSONObject()
 
-                val intent = Intent(this, Login::class.java)
-                intent.putExtra("firstName", et_firstName.text.toString())
-                intent.putExtra("lastName", et_lastName.text.toString())
-                intent.putExtra("password", et_password.text.toString())
-                intent.putExtra("email", et_email.text.toString())
-                intent.putExtra("country", et_country.text.toString())
-                intent.putExtra("city", et_city.text.toString())
-                intent.putExtra("gender", et_gender.text.toString())
-                intent.putExtra("date", date.text.toString())
-                intent.putExtra("national_id", et_nationalID.text.toString())
-                intent.putExtra("phone", et_phone.text.toString())
-
-
-
-                params.put("firstName",  et_firstName.text.toString())
-                params.put("lastName", et_lastName.text.toString())
+                params.put("firstName",  et_fname.text.toString())
+                params.put("lastName", et_lname.text.toString())
                 params.put("email",   et_email.text.toString())
-                params.put("password",  et_password.text.toString())
+                params.put("password",  et_pass.text.toString())
                 params.put("phone", et_phone.text.toString())
                 params.put("gender",  et_gender.text.toString())
-                params.put("date", date.text.toString())
+                params.put("date", et_birthdate.text.toString())
                 params.put("national_id",et_nationalID.text.toString())
                 params.put("city", et_city.text.toString())
                 params.put("country", et_country.text.toString())
@@ -149,12 +124,12 @@ class Registration : AppCompatActivity() {
 
             if (et_nationalID.text.toString().isEmpty())
                 Toast.makeText(this, "Enter your national ID", Toast.LENGTH_LONG).show()
-            else if (et_nationalID.text.toString().length != 14)
+            /*else if (et_nationalID.text.toString().length != 14)
                 Toast.makeText(
                     this,
                     "Enter your Valid national ID (14 Number)",
                     Toast.LENGTH_LONG
-                ).show()
+                ).show()*/
 
 
             if (et_city.text.toString().isEmpty())

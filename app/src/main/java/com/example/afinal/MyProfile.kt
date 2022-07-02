@@ -8,6 +8,8 @@ import android.widget.*
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.finalseizures.MyRequest
+import kotlinx.android.synthetic.main.activity_my_profile.*
+import kotlinx.android.synthetic.main.activity_registration.*
 
 class MyProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,20 +17,7 @@ class MyProfile : AppCompatActivity() {
         setContentView(R.layout.activity_my_profile)
 
 
-        val firstName= findViewById<TextView>(R.id.firstName_edit)
-        val lastName= findViewById<TextView>(R.id.lastName_edit)
-        val email= findViewById<TextView>(R.id.email_edit)
-        val phone= findViewById<TextView>(R.id.phone_edit)
-        val country= findViewById<TextView>(R.id.country_edit)
-        val city= findViewById<TextView>(R.id.city_edit)
-        val gender= findViewById<TextView>(R.id.gender_edit)
-        val birthDate= findViewById<TextView>(R.id.birthDate_edit)
-        val nationalId= findViewById<TextView>(R.id.nationalId_edit)
 
-
-
-        val edit= findViewById<Button>(R.id.Btn_edit)
-        val back= findViewById<Button>(R.id.Btn_back)
 
 
         edit.setOnClickListener{
@@ -48,17 +37,17 @@ class MyProfile : AppCompatActivity() {
             { response ->
 
                 Log.d("mytag", "response = $response")
-                val profile = response.getJSONObject("Patient")
+                val profile = response.getJSONObject("data")
 
                 firstName.text = profile.getString("firstName").toString()
                 lastName.text = profile.getLong("lastName").toString()
-                email.text = profile.getString("email")
+                yourEmail.text = profile.getString("email")
                 city.text = profile.getString("city")
                 country.text = profile.getString("country")
-                phone.text = profile.getString("phone")
+                yourPhone.text = profile.getString("phone")
                 gender.text = profile.getString("gender")
-                nationalId.text = profile.getString("national_id")
-                birthDate.text = profile.getString("date")
+                nationalID.text = profile.getString("national_id")
+                DateBirth.text = profile.getString("date")
 
                 // if there is an error (wrong email or password)
                 if (response.has("error")) {

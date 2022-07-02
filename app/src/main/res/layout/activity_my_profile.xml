@@ -6,346 +6,283 @@
     android:layout_height="match_parent"
     android:padding="20dp"
     android:background="@color/white"
-    tools:context=".MyProfile">
+    tools:context=".MyProfile"
+    android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="UselessParent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Account Info"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_22sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
 
-            <RelativeLayout
-                android:id="@+id/prof_image"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-                <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:contentDescription="@string/profile_image"
-                    android:src="@drawable/ic_baseline_account_circle_24" />
-
-
-            </RelativeLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:id="@+id/firstName_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/first_name" />
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/firstName_edit"
-                            style="@style/EditText"
-                            android:layout_width="800dp"
-                            android:layout_height="40dp"
-                            android:autofillHints="name"
-                            android:enabled="false"
-                            android:inputType="text" />
-
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lastName_layout"
-                    app:layout_constraintStart_toEndOf="@id/firstName_layout"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/last_name" />
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/lastName_edit"
-                            style="@style/EditText"
-                            android:layout_width="800dp"
-                            android:layout_height="40dp"
-                            android:autofillHints="name"
-                            android:enabled="false"
-                            android:inputType="text" />
-
-                    </RelativeLayout>
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <LinearLayout
-                android:id="@+id/email_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/email" />
-
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/email_edit"
-                        style="@style/EditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:autofillHints="emailAddress"
-                        android:enabled="false"
-
-                        android:inputType="textEmailAddress" />
-
-                </RelativeLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/phone_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/phone_number" />
-
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/phone_edit"
-                        style="@style/EditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:autofillHints="phone"
-                        android:enabled="false"
-                        android:inputType="phone" />
-
-                </RelativeLayout>
-            </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:id="@+id/country_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/country" />
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/country_edit"
-                            style="@style/EditText"
-                            android:layout_width="800dp"
-                            android:layout_height="40dp"
-                            android:autofillHints="country"
-                            android:enabled="false"
-
-                            android:inputType="text" />
-
-                         </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/city_layout"
-                    app:layout_constraintStart_toEndOf="@id/country_layout"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/city" />
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/city_edit"
-                            style="@style/EditText"
-                            android:layout_width="800dp"
-                            android:layout_height="40dp"
-                            android:autofillHints="City"
-                            android:enabled="false"
-                            android:inputType="text" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="172dp"
+        android:text="@string/first_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
-                    </RelativeLayout>
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <LinearLayout
-                android:id="@+id/age_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+    <TextView
+        android:id="@+id/firstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="your name"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/BirthDate" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="172dp"
+        android:text="@string/last_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/last_name"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="172dp"
+        android:text="Mobile"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/image4"
+        app:layout_constraintTop_toBottomOf="@+id/yourName" />
 
 
-                <TextView
-                    android:id="@+id/birthDate_edit"
-                    style="@style/EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:autofillHints="Date"
-                    android:enabled="false"
-                    android:inputType="date" />
+    <TextView
+        android:id="@+id/yourPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="your phone"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toEndOf="@+id/image4"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/Gender_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Email"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/yourPhone" />
 
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/gender" />
-                <TextView
-                    android:id="@+id/gender_edit"
-                    style="@style/EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:enabled="false"
-                    android:autofillHints="Gender"
-                    android:inputType="text" />
 
-            </LinearLayout>
+    <TextView
+        android:id="@+id/yourEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="your Email"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-            <LinearLayout
-                android:id="@+id/pass_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
 
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/national_id" />
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/city"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/yourEmail" />
 
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/nationalId_edit"
-                        style="@style/EditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:autofillHints="password"
-                        android:enabled="false"
-                        android:inputType="number" />
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/city"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true">
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/country"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/yourEmail" />
 
-                        <ImageView
-                            android:id="@+id/edit_nationalId"
-                            android:layout_width="20dp"
-                            android:layout_height="30dp"
-                            android:contentDescription="@string/edit"
-                            android:visibility="invisible"
-                            app:layout_constraintStart_toEndOf="@id/edit_nationalId"
-                            app:layout_constraintTop_toTopOf="@id/edit_nationalId"
-                            app:layout_constraintBottom_toBottomOf="@id/edit_nationalId"
-                            android:src="@drawable/ic_baseline_edit_24" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </RelativeLayout>
-            </LinearLayout>
+    <TextView
+        android:id="@+id/country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/country"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="5dp">
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/gender"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/yourEmail" />
 
-                <Button
-                    android:id="@+id/Btn_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/Button"
-                    android:text="@string/edit"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/Btn_back"
-                    />
-                <Button
-                    android:id="@+id/Btn_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/Button"
-                    android:text="@string/Back"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/Btn_edit"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-    </ScrollView>
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gender"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/national_id"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/yourEmail" />
+
+
+    <TextView
+        android:id="@+id/nationalID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/national_id"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="D.O.B"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/yourAddress" />
+
+    <TextView
+        android:id="@+id/DateBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="your Date Of Birth"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+<Button
+    android:id="@+id/edit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Edit"
+    />
 </LinearLayout>
