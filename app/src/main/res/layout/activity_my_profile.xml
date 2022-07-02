@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/white"
+    tools:context=".MyProfile">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/prof_image"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:contentDescription="@string/profile_image"
+                    android:src="@drawable/ic_baseline_account_circle_24" />
+
+
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:id="@+id/firstName_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/first_name" />
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/firstName_edit"
+                            style="@style/EditText"
+                            android:layout_width="800dp"
+                            android:layout_height="40dp"
+                            android:autofillHints="name"
+                            android:enabled="false"
+                            android:inputType="text" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lastName_layout"
+                    app:layout_constraintStart_toEndOf="@id/firstName_layout"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_name" />
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/lastName_edit"
+                            style="@style/EditText"
+                            android:layout_width="800dp"
+                            android:layout_height="40dp"
+                            android:autofillHints="name"
+                            android:enabled="false"
+                            android:inputType="text" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/email_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/email_edit"
+                        style="@style/EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:autofillHints="emailAddress"
+                        android:enabled="false"
+
+                        android:inputType="textEmailAddress" />
+
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/phone_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_number" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/phone_edit"
+                        style="@style/EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:autofillHints="phone"
+                        android:enabled="false"
+                        android:inputType="phone" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:id="@+id/country_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/country" />
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/country_edit"
+                            style="@style/EditText"
+                            android:layout_width="800dp"
+                            android:layout_height="40dp"
+                            android:autofillHints="country"
+                            android:enabled="false"
+
+                            android:inputType="text" />
+
+                         </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/city_layout"
+                    app:layout_constraintStart_toEndOf="@id/country_layout"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/city" />
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/city_edit"
+                            style="@style/EditText"
+                            android:layout_width="800dp"
+                            android:layout_height="40dp"
+                            android:autofillHints="City"
+                            android:enabled="false"
+                            android:inputType="text" />
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/age_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/BirthDate" />
+
+
+                <TextView
+                    android:id="@+id/birthDate_edit"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:autofillHints="Date"
+                    android:enabled="false"
+                    android:inputType="date" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Gender_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gender" />
+                <TextView
+                    android:id="@+id/gender_edit"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:enabled="false"
+                    android:autofillHints="Gender"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pass_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/national_id" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/nationalId_edit"
+                        style="@style/EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:autofillHints="password"
+                        android:enabled="false"
+                        android:inputType="number" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true">
+
+                        <ImageView
+                            android:id="@+id/edit_nationalId"
+                            android:layout_width="20dp"
+                            android:layout_height="30dp"
+                            android:contentDescription="@string/edit"
+                            android:visibility="invisible"
+                            app:layout_constraintStart_toEndOf="@id/edit_nationalId"
+                            app:layout_constraintTop_toTopOf="@id/edit_nationalId"
+                            app:layout_constraintBottom_toBottomOf="@id/edit_nationalId"
+                            android:src="@drawable/ic_baseline_edit_24" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/Btn_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Button"
+                    android:text="@string/edit"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/Btn_back"
+                    />
+                <Button
+                    android:id="@+id/Btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Button"
+                    android:text="@string/Back"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/Btn_edit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
