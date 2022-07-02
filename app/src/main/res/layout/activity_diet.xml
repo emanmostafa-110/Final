@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Diet"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Nutritional advice for epilepsy patients"
+            android:textSize="20sp"
+            android:textColor="#8946A6" />
+        <TextView
+            android:id="@+id/ques1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:text="1)Avoid the patient's intake of caffeinated drinks such as tea and coffee because they may encourage the occurrence of attacks of this disease."
+
+            android:textColor="#9f000000"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/ques2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginRight="10dp"
+            android:text="2) Refrain from foods that contain monosodium glutamate, such as canned foods."
+            android:layout_marginTop="20dp"
+            android:textColor="#9f000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/ques3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginRight="10dp"
+            android:text="3)Avoid some foods that have moderate levels of sugar such as mango, raisins, bananas and mashed potatoes."
+            android:layout_marginTop="20dp"
+            android:textColor="#9f000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/ques4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginRight="10dp"
+            android:text="4)Eating foods that contain carbohydrates negatively affects epilepsy patients, such as pizza, soft drinks, white bread, cake, bread, white rice, white pasta and potato chips."
+            android:layout_marginTop="20dp"
+            android:textColor="#9f000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/ques5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginRight="10dp"
+            android:text="5)Olive oil and coconut oil are among the most important and best oils that can be offered to epilepsy patients due to their high nutritional value and rapid absorption from the intestine."
+            android:layout_marginTop="20dp"
+            android:textColor="#9f000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/ques7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginRight="10dp"
+            android:text="6)Eating curdled dairy products such as yogurt."
+            android:layout_marginTop="20dp"
+            android:textColor="#9f000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/ques8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginRight="10dp"
+            android:text="7)Food should include beets, beets, eggs, leafy greens, uncooked cheese, unprocessed milk, raw nuts and seeds, beans and soy."
+            android:layout_marginTop="20dp"
+            android:textColor="#9f000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/ques9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:text="8)Consume fresh juices made from beets, carrots, green beans, leafy greens, peas, red grapes and kelp for their beneficial nutritional content for epilepsy"
+            android:textColor="#9f000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/ques10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#9f000000"
+            android:text="9)Eat small meals, do not drink large amounts of fluids at once, and eat two tablespoons of olive oil daily."
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+
+
+</ScrollView>
