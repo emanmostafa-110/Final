@@ -128,4 +128,6 @@
     <string name="save_eeg">Save EEg</string>
     <string name="save_eeg1">Save EEG</string>
     <string name="type_of_signal">Type of signal</string>
+    <string name="connection_history">Connection History</string>
+    <string name="connection_requests">Connection Requests</string>
 </resources>
