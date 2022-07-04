@@ -18,10 +18,13 @@ import org.json.JSONObject
 
 class Registration : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.S)
+
+    val gender = arrayOf("Female","Male")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
+       // val arrayAdapter =ArrayAdapter<String>(this,)
 
 
         btn_registration.setOnClickListener {
@@ -37,7 +40,7 @@ class Registration : AppCompatActivity() {
                 params.put("password",  et_pass.text.toString())
                 params.put("phone", et_phone.text.toString())
                 params.put("gender",  et_gender.text.toString())
-                params.put("date", et_birthdate.text.toString())
+                params.put("birth_day", et_birthdate.text.toString())
                 params.put("national_id",et_nationalID.text.toString())
                 params.put("city", et_city.text.toString())
                 params.put("country", et_country.text.toString())
@@ -86,7 +89,7 @@ class Registration : AppCompatActivity() {
         val date = findViewById<EditText>(R.id.et_birthdate)
         val et_city = findViewById<EditText>(R.id.et_city)
         val et_country = findViewById<EditText>(R.id.et_country)
-        val et_gender = findViewById<EditText>(R.id.et_gender)
+        //val et_gender = findViewById<EditText>(R.id.et_gender)
         val et_nationalID = findViewById<EditText>(R.id.et_nationalID)
         val et_firstName = findViewById<EditText>(R.id.et_fname)
         val et_lastName = findViewById<EditText>(R.id.et_lname)

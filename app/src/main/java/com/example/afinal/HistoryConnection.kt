@@ -5,12 +5,40 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.afinal.Adapters.ConnectionAdapter
+import com.example.afinal.Services.ServicesData
+import kotlinx.android.synthetic.main.activity_history_connection.*
+import kotlinx.android.synthetic.main.list_history_of_connection.*
 
 class HistoryConnection : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history_connection)
+
+
+
+        // this creates a vertical layout Manager
+        rv_list_history.layoutManager = LinearLayoutManager(this)
+
+        // ArrayList of class ItemsViewModel
+        val data = ArrayList<ServicesData>()
+
+        // This loop will create 20 Views containing
+        // the image with the count of view
+        for (i in 1..20) {
+            data.add(ServicesData(DoctorName.toString()))
+
+        }
+
+        // This will pass the ArrayList to our Adapter
+        val adapter = ConnectionAdapter(data)
+
+        // Setting the Adapter with the recyclerview
+        rv_list_history.adapter = adapter
+
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -20,10 +20,12 @@ class MyProfile : AppCompatActivity() {
 
 
 
-        edit.setOnClickListener{
-            val intent = Intent(this@MyProfile, EditProfile::class.java)
-            startActivity(intent)
-        }
+
+        backBtnProfile.setOnClickListener { onBackPressed() }
+
+        appCompatButton.setOnClickListener { onBackPressed() }
+
+
 
         Log.d("mytag", "Button clicked")
 
@@ -39,15 +41,11 @@ class MyProfile : AppCompatActivity() {
                 Log.d("mytag", "response = $response")
                 val profile = response.getJSONObject("data")
 
-                firstName.text = profile.getString("firstName").toString()
-                lastName.text = profile.getLong("lastName").toString()
+                yourName.text = "${profile.getString("firstName")} ${profile.getString("lastName")}"
+                yourPhone.text = profile.getLong("phone").toString()
+                yourAddress.text ="${profile.getString("city")} ${profile.getString("country")}"
+                DateBirth.text = profile.getString("birth_day")
                 yourEmail.text = profile.getString("email")
-                city.text = profile.getString("city")
-                country.text = profile.getString("country")
-                yourPhone.text = profile.getString("phone")
-                gender.text = profile.getString("gender")
-                nationalID.text = profile.getString("national_id")
-                DateBirth.text = profile.getString("date")
 
                 // if there is an error (wrong email or password)
                 if (response.has("error")) {

@@ -6,6 +6,7 @@
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/drawable/btnshape.xml" value="0.1255" />
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/drawable/editshape.xml" value="0.1035" />
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1255" />
+        <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.14" />
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1255" />
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.1255" />
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/layout/activity_connection_request.xml" value="0.2203125" />
@@ -27,6 +28,7 @@
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/layout/activity_symptoms.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/layout/activity_upload_eeg.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/layout/activity_upload_emg.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/layout/list_history_of_connection.xml" value="0.16822916666666668" />
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/layout/list_request_of_connection.xml" value="0.2203125" />
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/layout/seizure_history_recycler.xml" value="0.2203125" />
         <entry key="..\:/AndroidStudioProjects/Final/app/src/main/res/menu/menue.xml" value="0.27291666666666664" />
