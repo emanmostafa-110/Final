@@ -1,4 +1,4 @@
-package com.example.afinal
+package com.example.afinal.UI
 
 import android.content.Intent
 import android.os.Build
@@ -7,11 +7,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.annotation.RequiresApi
-import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
+import com.example.afinal.R
 import com.example.finalseizures.MyRequest
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.activity_registration.et_email
 import org.json.JSONObject

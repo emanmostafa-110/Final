@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.example.afinal.UI.Login
+import com.example.afinal.UI.MyProfile
 
 class MedicalRecord : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.example.afinal
+package com.example.afinal.UI
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.Toast
+import com.example.afinal.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 return true
             }
-            R.id.seizureHistory->{
+            R.id.seizureHistory ->{
                 val intent = Intent(this@MainActivity, SeizureHistory::class.java)
                 startActivity(intent)
                 return true

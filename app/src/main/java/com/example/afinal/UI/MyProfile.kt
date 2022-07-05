@@ -1,5 +1,6 @@
-package com.example.afinal
+package com.example.afinal.UI
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,24 +8,19 @@ import android.util.Log
 import android.widget.*
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
+import com.example.afinal.R
 import com.example.finalseizures.MyRequest
 import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.activity_registration.*
 
 class MyProfile : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_profile)
 
 
-
-
-
-
         backBtnProfile.setOnClickListener { onBackPressed() }
-
-        appCompatButton.setOnClickListener { onBackPressed() }
-
 
 
         Log.d("mytag", "Button clicked")
@@ -42,10 +38,11 @@ class MyProfile : AppCompatActivity() {
                 val profile = response.getJSONObject("data")
 
                 yourName.text = "${profile.getString("firstName")} ${profile.getString("lastName")}"
-                yourPhone.text = profile.getLong("phone").toString()
-                yourAddress.text ="${profile.getString("city")} ${profile.getString("country")}"
-                DateBirth.text = profile.getString("birth_day")
                 yourEmail.text = profile.getString("email")
+                yourPhone.text = profile.getLong("phone").toString()
+                yourAddress.text ="${profile.getString("country")} / ${profile.getString("city")}"
+                DateBirth.text = profile.getString("birth_day")
+                yourGender.text = profile.getString("gender")
 
                 // if there is an error (wrong email or password)
                 if (response.has("error")) {

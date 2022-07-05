@@ -1,4 +1,4 @@
-package com.example.afinal
+package com.example.afinal.UI
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,11 +7,11 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.airbnb.lottie.LottieAnimationView
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
+import com.example.afinal.R
 import com.example.finalseizures.MyRequest
 import org.json.JSONObject
 
