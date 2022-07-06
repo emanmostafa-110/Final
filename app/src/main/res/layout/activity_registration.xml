@@ -19,7 +19,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"
             android:src="@drawable/logo"
             />
 
@@ -27,10 +26,11 @@
             android:id="@+id/et_fname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/editshape"
             android:hint="@string/first_name"
+            android:minHeight="48dp"
             android:padding="10dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/editshape"
             android:hint="@string/last_name"
             android:paddingTop="10dp"
@@ -51,6 +51,7 @@
             android:textColorHint="#AE000000"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@id/et_phone"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@id/et_fname"
             app:layout_constraintTop_toBottomOf="@id/logo" />
 
@@ -58,33 +59,32 @@
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="20dp"
             android:background="@drawable/editshape"
             android:hint="@string/email"
+            android:minHeight="48dp"
             android:padding="10dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/et_fname" />
+            app:layout_constraintTop_toBottomOf="@id/et_fname"
+            tools:layout_editor_absoluteX="10dp" />
 
         <EditText
             android:id="@+id/et_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="20dp"
             android:background="@drawable/editshape"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:minHeight="48dp"
             android:padding="10dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/et_email" />
-
+            app:layout_constraintTop_toBottomOf="@id/et_email"
+            tools:layout_editor_absoluteX="10dp" />
 
 
         <EditText
@@ -92,17 +92,17 @@
             android:id="@+id/et_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="20dp"
             android:background="@drawable/editshape"
             android:hint="@string/phone_number"
-            android:padding="10dp"
             android:inputType="number"
+            android:minHeight="48dp"
+            android:padding="10dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/et_pass" />
+            app:layout_constraintTop_toBottomOf="@id/et_pass"
+            tools:layout_editor_absoluteX="10dp" />
 
         <EditText
             android:id="@+id/et_country"
@@ -113,12 +113,12 @@
             android:background="@drawable/editshape"
             android:hint="@string/country"
 
+            android:minHeight="48dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/et_phone"
-            app:layout_constraintTop_toBottomOf="@id/et_phone"
-            />
+            app:layout_constraintTop_toBottomOf="@id/et_phone" />
 
         <EditText
             android:id="@+id/et_city"
@@ -128,29 +128,30 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/editshape"
             android:hint="@string/city"
+            android:minHeight="48dp"
             android:paddingTop="10dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@id/et_phone"
             app:layout_constraintStart_toEndOf="@id/et_country"
-            app:layout_constraintTop_toBottomOf="@id/et_phone"
-            />
+            app:layout_constraintTop_toBottomOf="@id/et_phone" />
+
         <EditText
             android:id="@+id/et_nationalID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="20dp"
             android:background="@drawable/editshape"
             android:hint="@string/national_id"
             android:inputType="number"
+            android:minHeight="48dp"
             android:padding="10dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/et_city" />
+            app:layout_constraintTop_toBottomOf="@id/et_city"
+            tools:layout_editor_absoluteX="10dp" />
         <TextView
             android:id="@+id/et_gender"
             android:layout_width="match_parent"

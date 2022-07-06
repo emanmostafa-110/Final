@@ -8,15 +8,14 @@
     android:background="@color/white"
     >
 
+
     <ImageView
         android:id="@+id/personal"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:src="@drawable/logo"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50dp"
-        />
-
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
 

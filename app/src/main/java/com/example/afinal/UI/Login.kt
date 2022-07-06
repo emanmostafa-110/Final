@@ -20,6 +20,8 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        supportActionBar?.hide()
+
         val btn_login= findViewById<Button>(R.id.btn_login)
         val noAccount= findViewById<TextView>(R.id.tv_registration)
         val forgetPassword= findViewById<TextView>(R.id.tv_forgetPassword)

@@ -14,27 +14,25 @@ import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.activity_registration.*
 
 class MyProfile : AppCompatActivity() {
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_profile)
 
+        supportActionBar?.hide()
 
         backBtnProfile.setOnClickListener { onBackPressed() }
-
-
-        Log.d("mytag", "Button clicked")
 
         // send request
         val queue = Volley.newRequestQueue(this)
         val request = MyRequest(
             this,
             Request.Method.GET,
-            "/profile",
+            "/profileShow",
             null,
             { response ->
 
                 Log.d("mytag", "response = $response")
+
                 val profile = response.getJSONObject("data")
 
                 yourName.text = "${profile.getString("firstName")} ${profile.getString("lastName")}"
@@ -60,6 +58,5 @@ class MyProfile : AppCompatActivity() {
             }
         )
         queue.add(request)
-
     }
 }
