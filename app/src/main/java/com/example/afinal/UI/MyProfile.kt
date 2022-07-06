@@ -1,6 +1,5 @@
 package com.example.afinal.UI
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,7 +19,10 @@ class MyProfile : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        backBtnProfile.setOnClickListener { onBackPressed() }
+        edit.setOnClickListener {
+            val intent = Intent(this@MyProfile, EditProfile::class.java)
+            startActivity(intent)
+        }
 
         // send request
         val queue = Volley.newRequestQueue(this)
@@ -41,6 +43,7 @@ class MyProfile : AppCompatActivity() {
                 yourAddress.text ="${profile.getString("country")} / ${profile.getString("city")}"
                 DateBirth.text = profile.getString("birth_day")
                 yourGender.text = profile.getString("gender")
+                Yournational_id.text=profile.getString("national_id")
 
                 // if there is an error (wrong email or password)
                 if (response.has("error")) {

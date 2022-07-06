@@ -130,4 +130,8 @@
     <string name="type_of_signal">Type of signal</string>
     <string name="connection_history">Connection History</string>
     <string name="connection_requests">Connection Requests</string>
+    <string name="address">Address</string>
+    <string name="your_address">your Address</string>
+    <string name="d_o_b">D.O.B</string>
+    <string name="your_national_id">your National ID</string>
 </resources>
