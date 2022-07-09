@@ -1,17 +1,24 @@
-package com.example.afinal
+package com.example.afinal.Signal
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.example.afinal.*
+import com.example.afinal.Connection.ConnectionRequest
+import com.example.afinal.Connection.HistoryConnection
+import com.example.afinal.Information.Alarm
+import com.example.afinal.Information.Diet
+import com.example.afinal.Information.FrequentQuestion
+import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
 
-class Diet : AppCompatActivity() {
+class SeizureHistory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_diet)
+        setContentView(R.layout.activity_seizure_history)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -23,57 +30,57 @@ class Diet : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.profile -> {
-                val intent = Intent(this@Diet, MyProfile::class.java)
+                val intent = Intent(this@SeizureHistory, MyProfile::class.java)
                 startActivity(intent)
                 return true
             }
-            R.id.seizureHistory->{
-                val intent = Intent(this@Diet, SeizureHistory::class.java)
+            R.id.seizureHistory ->{
+                val intent = Intent(this@SeizureHistory, SeizureHistory::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.medicalRecord ->{
-                val intent = Intent(this@Diet, MedicalRecord::class.java)
+                val intent = Intent(this@SeizureHistory, MedicalRecord::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.symptoms ->{
-                val intent = Intent(this@Diet, Symptoms::class.java)
+                val intent = Intent(this@SeizureHistory, Symptoms::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.connectionHistory ->{
-                val intent = Intent(this@Diet, HistoryConnection::class.java)
+                val intent = Intent(this@SeizureHistory, HistoryConnection::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.connectionRequest ->{
-                val intent = Intent(this@Diet, ConnectionRequest::class.java)
+                val intent = Intent(this@SeizureHistory, ConnectionRequest::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.alarm ->{
-                val intent = Intent(this@Diet, Alarm::class.java)
+                val intent = Intent(this@SeizureHistory, Alarm::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.diet ->{
-                val intent = Intent(this@Diet, Diet::class.java)
+                val intent = Intent(this@SeizureHistory, Diet::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.seizure ->{
-                val intent = Intent(this@Diet, SeizureInfo::class.java)
+                val intent = Intent(this@SeizureHistory, SeizureInfo::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.question ->{
-                val intent = Intent(this@Diet, FrequentQuestion::class.java)
+                val intent = Intent(this@SeizureHistory, FrequentQuestion::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.logout ->{
-                val intent = Intent(this@Diet, Login::class.java)
+                val intent = Intent(this@SeizureHistory, Login::class.java)
                 startActivity(intent)
                 return true
             }

@@ -1,17 +1,24 @@
-package com.example.afinal
+package com.example.afinal.Signal
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.example.afinal.*
+import com.example.afinal.Connection.ConnectionRequest
+import com.example.afinal.Connection.HistoryConnection
+import com.example.afinal.Information.Alarm
+import com.example.afinal.Information.Diet
+import com.example.afinal.Information.FrequentQuestion
+import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
 
-class RecordEMG : AppCompatActivity() {
+class UploadEMG : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_record_emg)
+        setContentView(R.layout.activity_upload_emg)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -23,57 +30,57 @@ class RecordEMG : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.profile -> {
-                val intent = Intent(this@RecordEMG, MyProfile::class.java)
+                val intent = Intent(this@UploadEMG, MyProfile::class.java)
                 startActivity(intent)
                 return true
             }
-            R.id.seizureHistory->{
-                val intent = Intent(this@RecordEMG, SeizureHistory::class.java)
+            R.id.seizureHistory ->{
+                val intent = Intent(this@UploadEMG, SeizureHistory::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.medicalRecord ->{
-                val intent = Intent(this@RecordEMG, MedicalRecord::class.java)
+                val intent = Intent(this@UploadEMG, MedicalRecord::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.symptoms ->{
-                val intent = Intent(this@RecordEMG, Symptoms::class.java)
+                val intent = Intent(this@UploadEMG, Symptoms::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.connectionHistory ->{
-                val intent = Intent(this@RecordEMG, HistoryConnection::class.java)
+                val intent = Intent(this@UploadEMG, HistoryConnection::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.connectionRequest ->{
-                val intent = Intent(this@RecordEMG, ConnectionRequest::class.java)
+                val intent = Intent(this@UploadEMG, ConnectionRequest::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.alarm ->{
-                val intent = Intent(this@RecordEMG, Alarm::class.java)
+                val intent = Intent(this@UploadEMG, Alarm::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.diet ->{
-                val intent = Intent(this@RecordEMG, Diet::class.java)
+                val intent = Intent(this@UploadEMG, Diet::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.seizure ->{
-                val intent = Intent(this@RecordEMG, SeizureInfo::class.java)
+                val intent = Intent(this@UploadEMG, SeizureInfo::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.question ->{
-                val intent = Intent(this@RecordEMG, FrequentQuestion::class.java)
+                val intent = Intent(this@UploadEMG, FrequentQuestion::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.logout ->{
-                val intent = Intent(this@RecordEMG, Login::class.java)
+                val intent = Intent(this@UploadEMG, Login::class.java)
                 startActivity(intent)
                 return true
             }

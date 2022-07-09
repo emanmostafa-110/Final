@@ -7,6 +7,16 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import com.example.afinal.*
+import com.example.afinal.Connection.ConnectionRequest
+import com.example.afinal.Connection.HistoryConnection
+import com.example.afinal.Information.Alarm
+import com.example.afinal.Information.Diet
+import com.example.afinal.Information.FrequentQuestion
+import com.example.afinal.Information.SeizureInfo
+import com.example.afinal.Signal.RecordEMG
+import com.example.afinal.Signal.SeizureHistory
+import com.example.afinal.Signal.UploadEEG
+import com.example.afinal.Signal.UploadEMG
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

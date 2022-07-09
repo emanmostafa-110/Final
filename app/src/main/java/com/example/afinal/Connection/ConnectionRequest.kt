@@ -1,41 +1,25 @@
-package com.example.afinal
+package com.example.afinal.Connection
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.afinal.Information.Alarm
+import com.example.afinal.Information.Diet
+import com.example.afinal.Information.FrequentQuestion
+import com.example.afinal.Information.SeizureInfo
+import com.example.afinal.MedicalRecord
+import com.example.afinal.R
+import com.example.afinal.Signal.SeizureHistory
+import com.example.afinal.Symptoms
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
-import kotlinx.android.synthetic.main.activity_history_connection.*
 
-class HistoryConnection : AppCompatActivity() {
+class ConnectionRequest : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_history_connection)
-
-
-
-        // this creates a vertical layout Manager
-        rv_list_history.layoutManager = LinearLayoutManager(this)
-
-       /* // ArrayList of class ItemsViewModel
-        val data = ArrayList<ServicesData>()
-
-        // This loop will create 20 Views containing
-        // the image with the count of view
-        for (i in 1..20) {
-            data.add(ServicesData(DoctorName.toString()))
-
-        }
-
-        // This will pass the ArrayList to our Adapter
-        val adapter = ConnectionAdapter(data)
-
-        // Setting the Adapter with the recyclerview
-        rv_list_history.adapter = adapter*/
-
+        setContentView(R.layout.activity_connection_request)
     }
 
 
@@ -48,57 +32,57 @@ class HistoryConnection : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.profile -> {
-                val intent = Intent(this@HistoryConnection, MyProfile::class.java)
+                val intent = Intent(this@ConnectionRequest, MyProfile::class.java)
                 startActivity(intent)
                 return true
             }
-            R.id.seizureHistory->{
-                val intent = Intent(this@HistoryConnection, SeizureHistory::class.java)
+            R.id.seizureHistory ->{
+                val intent = Intent(this@ConnectionRequest, SeizureHistory::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.medicalRecord ->{
-                val intent = Intent(this@HistoryConnection, MedicalRecord::class.java)
+                val intent = Intent(this@ConnectionRequest, MedicalRecord::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.symptoms ->{
-                val intent = Intent(this@HistoryConnection, Symptoms::class.java)
+                val intent = Intent(this@ConnectionRequest, Symptoms::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.connectionHistory ->{
-                val intent = Intent(this@HistoryConnection, HistoryConnection::class.java)
+                val intent = Intent(this@ConnectionRequest, HistoryConnection::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.connectionRequest ->{
-                val intent = Intent(this@HistoryConnection, ConnectionRequest::class.java)
+                val intent = Intent(this@ConnectionRequest, ConnectionRequest::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.alarm ->{
-                val intent = Intent(this@HistoryConnection, Alarm::class.java)
+                val intent = Intent(this@ConnectionRequest, Alarm::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.diet ->{
-                val intent = Intent(this@HistoryConnection, Diet::class.java)
+                val intent = Intent(this@ConnectionRequest, Diet::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.seizure ->{
-                val intent = Intent(this@HistoryConnection, SeizureInfo::class.java)
+                val intent = Intent(this@ConnectionRequest, SeizureInfo::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.question ->{
-                val intent = Intent(this@HistoryConnection, FrequentQuestion::class.java)
+                val intent = Intent(this@ConnectionRequest, FrequentQuestion::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.logout ->{
-                val intent = Intent(this@HistoryConnection, Login::class.java)
+                val intent = Intent(this@ConnectionRequest, Login::class.java)
                 startActivity(intent)
                 return true
             }

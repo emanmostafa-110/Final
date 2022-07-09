@@ -134,4 +134,8 @@
     <string name="your_address">your Address</string>
     <string name="d_o_b">D.O.B</string>
     <string name="your_national_id">your National ID</string>
+    <string name="doctor_address">Doctor Address</string>
+    <string name="doctor_phone">Doctor phone</string>
+    <string name="doctor_email">Doctor Email</string>
+    <string name="delete">Delete</string>
 </resources>

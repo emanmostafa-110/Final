@@ -1,19 +1,25 @@
-package com.example.afinal
+package com.example.afinal.Signal
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.example.afinal.*
+import com.example.afinal.Connection.ConnectionRequest
+import com.example.afinal.Connection.HistoryConnection
+import com.example.afinal.Information.Alarm
+import com.example.afinal.Information.Diet
+import com.example.afinal.Information.FrequentQuestion
+import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
 
-class UploadEMG : AppCompatActivity() {
+class UploadEEG : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_upload_emg)
+        setContentView(R.layout.activity_upload_eeg)
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menue, menu)
@@ -23,57 +29,57 @@ class UploadEMG : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.profile -> {
-                val intent = Intent(this@UploadEMG, MyProfile::class.java)
+                val intent = Intent(this@UploadEEG, MyProfile::class.java)
                 startActivity(intent)
                 return true
             }
-            R.id.seizureHistory->{
-                val intent = Intent(this@UploadEMG, SeizureHistory::class.java)
+            R.id.seizureHistory ->{
+                val intent = Intent(this@UploadEEG, SeizureHistory::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.medicalRecord ->{
-                val intent = Intent(this@UploadEMG, MedicalRecord::class.java)
+                val intent = Intent(this@UploadEEG, MedicalRecord::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.symptoms ->{
-                val intent = Intent(this@UploadEMG, Symptoms::class.java)
+                val intent = Intent(this@UploadEEG, Symptoms::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.connectionHistory ->{
-                val intent = Intent(this@UploadEMG, HistoryConnection::class.java)
+                val intent = Intent(this@UploadEEG, HistoryConnection::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.connectionRequest ->{
-                val intent = Intent(this@UploadEMG, ConnectionRequest::class.java)
+                val intent = Intent(this@UploadEEG, ConnectionRequest::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.alarm ->{
-                val intent = Intent(this@UploadEMG, Alarm::class.java)
+                val intent = Intent(this@UploadEEG, Alarm::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.diet ->{
-                val intent = Intent(this@UploadEMG, Diet::class.java)
+                val intent = Intent(this@UploadEEG, Diet::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.seizure ->{
-                val intent = Intent(this@UploadEMG, SeizureInfo::class.java)
+                val intent = Intent(this@UploadEEG, SeizureInfo::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.question ->{
-                val intent = Intent(this@UploadEMG, FrequentQuestion::class.java)
+                val intent = Intent(this@UploadEEG, FrequentQuestion::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.logout ->{
-                val intent = Intent(this@UploadEMG, Login::class.java)
+                val intent = Intent(this@UploadEEG, Login::class.java)
                 startActivity(intent)
                 return true
             }
@@ -81,4 +87,5 @@ class UploadEMG : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 }

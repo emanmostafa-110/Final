@@ -18,46 +18,46 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
         <activity
-            android:name=".EditProfile"
+            android:name=".UI.EditProfile"
             android:exported="false" />
         <activity
-            android:name=".Diet"
+            android:name=".Information.Diet"
             android:exported="false" />
         <activity
-            android:name=".ConnectionRequest"
+            android:name=".Connection.ConnectionRequest"
             android:exported="false" />
         <activity
-            android:name=".HistoryConnection"
+            android:name=".Connection.HistoryConnection"
             android:exported="false" />
         <activity
-            android:name=".FrequentQuestion"
+            android:name=".Information.FrequentQuestion"
             android:exported="false" />
         <activity
-            android:name=".SeizureInfo"
+            android:name=".Information.SeizureInfo"
             android:exported="false" />
         <activity
             android:name=".MedicalRecord"
             android:exported="false" />
         <activity
-            android:name=".Alarm"
+            android:name=".Information.Alarm"
             android:exported="false" />
         <activity
             android:name=".Symptoms"
             android:exported="false" />
         <activity
-            android:name=".SeizureHistory"
+            android:name=".Signal.SeizureHistory"
             android:exported="false" />
         <activity
             android:name=".UI.SuccessfulSend"
             android:exported="false" />
         <activity
-            android:name=".UploadEMG"
+            android:name=".Signal.UploadEMG"
             android:exported="false" />
         <activity
-            android:name=".UploadEEG"
+            android:name=".Signal.UploadEEG"
             android:exported="false" />
         <activity
-            android:name=".RecordEMG"
+            android:name=".Signal.RecordEMG"
             android:exported="false" />
         <activity
             android:name=".UI.MyProfile"
