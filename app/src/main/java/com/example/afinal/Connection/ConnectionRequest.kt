@@ -3,8 +3,14 @@ package com.example.afinal.Connection
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Request
+import com.android.volley.toolbox.Volley
+import com.example.afinal.Adapter.ConnectionAdapter
 import com.example.afinal.Information.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
@@ -15,11 +21,69 @@ import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.Symptoms
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
+import com.example.finalseizures.MyRequestArray
+import kotlinx.android.synthetic.main.activity_history_connection.*
+import kotlinx.android.synthetic.main.activity_seizure_history.*
+import org.json.JSONObject
 
 class ConnectionRequest : AppCompatActivity() {
+
+    private lateinit var connectionAdapter2: ConnectionAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connection_request)
+
+        initRecyclerView()
+    }
+
+
+    private fun initRecyclerView(): ArrayList<String> {
+
+        rv_list_request.apply {
+            layoutManager = LinearLayoutManager(this@ConnectionRequest)
+
+            connectionAdapter2 = ConnectionAdapter()
+            adapter = connectionAdapter2
+
+
+            var list = arrayListOf<String>()
+
+            Log.d("mytag", "Button clicked")
+
+            // send request
+            val queue = Volley.newRequestQueue(this@ConnectionRequest)
+            val request = MyRequestArray(
+                this@ConnectionRequest,
+                Request.Method.GET,
+                "/connectionRequest",
+                null,
+                { response ->
+
+                    Log.d("mytag", "$response")
+
+                    for (i in 0 until  response.length()){
+
+                        val test: JSONObject = response.getJSONObject(i)
+
+                        // get the current student (json object) data
+                        list.add(test.getString("name"))
+                        list.add(test.getString("address"))
+                        list.add(test.getString("phone"))
+                        list.add(test.getString("email"))
+
+                    }
+                    Log.d("mytag", "$list")
+
+                },
+                { error ->
+                    Log.e("mytag", "Error: $error - Status Code = ${error.networkResponse?.statusCode}")
+                    Toast.makeText(this@ConnectionRequest, "Connection error", Toast.LENGTH_SHORT).show()
+                }
+            )
+            queue.add(request)
+
+            return list
+        }
     }
 
 

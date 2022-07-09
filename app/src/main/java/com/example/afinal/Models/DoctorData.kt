@@ -17,8 +17,9 @@ class DoctorData (
 
 {
     override fun toString(): String {
-        return "doctorData(name='$doctorName', address='$doctorAddress', phone='$doctorPhone', email='$doctorEmail'" +
-                " ,id='$connectionId' ,doctor_id='$doctorId')"
+
+       return "doctorData(name='$doctorName', address='$doctorAddress', phone='$doctorPhone', email='$doctorEmail'" + " ,id='$connectionId' ,doctor_id='$doctorId')"
+        // return "doctorData(name='$doctorName', address='$doctorAddress', phone='$doctorPhone', email='$doctorEmail'"
     }
 
 

@@ -6,14 +6,7 @@
     android:orientation="vertical"
     >
 
-    <TextView
-        android:layout_marginStart="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/requestOfConnection"
-        style="@style/TextView"
-        />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,6 +27,39 @@
                 android:enabled="false"
                 android:paddingStart="10dp"
                 android:hint="@string/doctor_name"
+                style="@style/EditText_RecyclerView"
+                />
+
+            <TextView
+                android:id="@+id/doctor_address"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:autofillHints="address"
+                android:enabled="false"
+                android:paddingStart="10dp"
+                android:hint="@string/doctor_address"
+                style="@style/EditText_RecyclerView"
+                />
+
+            <TextView
+                android:id="@+id/doctor_email"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:autofillHints="email"
+                android:enabled="false"
+                android:paddingStart="10dp"
+                android:hint="@string/doctor_email"
+                style="@style/EditText_RecyclerView"
+                />
+
+            <TextView
+                android:id="@+id/doctor_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:autofillHints="phone"
+                android:enabled="false"
+                android:paddingStart="10dp"
+                android:hint="@string/doctor_phone"
                 style="@style/EditText_RecyclerView"
                 />
             <androidx.constraintlayout.widget.ConstraintLayout
