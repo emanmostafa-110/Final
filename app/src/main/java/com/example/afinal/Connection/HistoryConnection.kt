@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
+import com.example.afinal.Adapter.ConnectionAdapter
+import com.example.afinal.Adapter.HistoryAdapter
 import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
@@ -29,11 +32,78 @@ import kotlinx.android.synthetic.main.activity_seizure_history.*
 
 class HistoryConnection : AppCompatActivity() {
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history_connection)
+        initRecyclerView()
+
+    }
+
+    private fun initRecyclerView() {
+
+        var list = ArrayList<DoctorData>()
+
+        Log.d("mytag", "Button clicked")
+
+        // send request
+        val queue = Volley.newRequestQueue(this@HistoryConnection)
+
+        val request = MyRequestArray(
+            this@HistoryConnection,
+            Request.Method.GET,
+            "/connectionData",
+            null,
+            { response ->
+
+                Log.d("mytag", "$response")
+
+                if(response.length() > 0) {
+
+                    for (i in 0 until response.length()) {
+
+                        //textConnection.visibility = View.GONE
+
+                        val test = response.getJSONObject(i)
+
+                        // get the current student (json object) data
+                        list.add(
+                            DoctorData(
+                                "Name: ${test.getString("name")}",
+                                test.getString("address"),
+                                test.getString("phone")
+                            )
+                        )
+
+                        rv_list_history.layoutManager = LinearLayoutManager(
+                            this,
+                            RecyclerView.VERTICAL, false
+                        )
+
+                        var HistoryAdapter = HistoryAdapter(list)
+
+                        rv_list_history.adapter = HistoryAdapter
+
+                       /* HistoryAdapter.setonItemClickListener(object: HistoryAdapter.onItemClickListener{
+
+                            override fun accept_action(position: Int) {
+
+                                sendID(response.getJSONObject(position).getInt("id"))
+
+                            }
+                        })*/
+                    }
+                }
+                Log.d("mytag", "$list")
+
+            },
+            { error ->
+                Log.e("mytag", "Error: $error - Status Code = ${error.networkResponse?.statusCode}")
+                Toast.makeText(this@HistoryConnection, "Connection error", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        )
+
+        queue.add(request)
 
 
     }

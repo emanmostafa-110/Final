@@ -3,27 +3,110 @@ package com.example.afinal.Signal
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.toolbox.Volley
 import com.example.afinal.*
+import com.example.afinal.Adapter.SignalAdapter
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
 import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
+import com.example.afinal.Models.SignalData
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
+import com.example.finalseizures.MyRequestArray
 
 class SeizureHistory : AppCompatActivity() {
+
+    private lateinit var newRecyclerView: RecyclerView
+    // private lateinit var newArrayList: ArrayList<Seizuer>
+    /*
+    lateinit var type_of_signal:Array<String>
+     lateinit var type_of_signalBase:Array<String>
+     lateinit var classification:Array<String>
+     lateinit var classificationBase:Array<String>
+     lateinit var probability_of_seizure:Array<String>
+     lateinit var probability_of_seizureBase:Array<Int>
+     lateinit var probability_of_notseizure:Array<String>
+     lateinit var probability_of_notseizureBase:Array<Int>
+     */
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seizure_history)
-
+        initRecyclerView()
 
     }
+
+    private fun initRecyclerView() {
+
+        var list = ArrayList<SignalData>()
+
+        Log.d("mytag", "Button clicked")
+
+        // send request
+        val queue = Volley.newRequestQueue(this@SeizureHistory)
+
+        val request = MyRequestArray(
+            this@SeizureHistory,
+            Request.Method.GET,
+            "/signalHistory",
+            null,
+            { response ->
+
+                Log.d("mytag", "$response")
+
+                if(response.length() > 0) {
+
+                    for (i in 0 until response.length()) {
+
+                        //textConnection.visibility = View.GONE
+
+                        val test = response.getJSONObject(i)
+
+                        // get the current student (json object) data
+                        list.add(
+                            SignalData(
+                                "type of signal: ${test.getString("type")}",
+                                test.getString("classification"),
+                                test.getString("prop_of_seiz"),
+                                test.getString("prop_of_non_seiz")
+                            )
+                        )
+
+                        newRecyclerView.layoutManager = LinearLayoutManager(
+                            this,
+                            RecyclerView.VERTICAL, false
+                        )
+
+                        var MyAdapter = SignalAdapter(list)
+
+                        newRecyclerView.adapter = MyAdapter
+
+
+                    }
+                }
+                Log.d("mytag", "$list")
+
+            },
+            { error ->
+                Log.e("mytag", "Error: $error - Status Code = ${error.networkResponse?.statusCode}")
+                Toast.makeText(this@SeizureHistory, "Connection error", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        )
+
+        queue.add(request)
+}
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
