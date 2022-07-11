@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.afinal.*
-import com.example.afinal.Adapter.SignalAdapter
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
 import com.example.afinal.Alarm.Alarm
@@ -23,22 +22,9 @@ import com.example.afinal.Models.SignalData
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
 import com.example.finalseizures.MyRequestArray
+import kotlinx.android.synthetic.main.activity_seizure_history.*
 
 class SeizureHistory : AppCompatActivity() {
-
-    private lateinit var newRecyclerView: RecyclerView
-    // private lateinit var newArrayList: ArrayList<Seizuer>
-    /*
-    lateinit var type_of_signal:Array<String>
-     lateinit var type_of_signalBase:Array<String>
-     lateinit var classification:Array<String>
-     lateinit var classificationBase:Array<String>
-     lateinit var probability_of_seizure:Array<String>
-     lateinit var probability_of_seizureBase:Array<Int>
-     lateinit var probability_of_notseizure:Array<String>
-     lateinit var probability_of_notseizureBase:Array<Int>
-     */
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,14 +69,14 @@ class SeizureHistory : AppCompatActivity() {
                             )
                         )
 
-                        newRecyclerView.layoutManager = LinearLayoutManager(
+                        rv_history_signal.layoutManager = LinearLayoutManager(
                             this,
                             RecyclerView.VERTICAL, false
                         )
 
-                        var MyAdapter = SignalAdapter(list)
+                        var SignalsAdapter = SignalAdapter(list)
 
-                        newRecyclerView.adapter = MyAdapter
+                        rv_history_signal.adapter = SignalsAdapter
 
 
                     }

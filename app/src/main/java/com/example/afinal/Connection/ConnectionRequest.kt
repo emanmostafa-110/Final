@@ -16,7 +16,6 @@ import com.example.afinal.R
 import com.example.finalseizures.MyRequest
 import com.example.finalseizures.MyRequestArray
 import kotlinx.android.synthetic.main.activity_connection_request.*
-import kotlinx.android.synthetic.main.activity_seizure_history.rv_list_request
 import org.json.JSONObject
 import kotlin.collections.ArrayList
 
