@@ -17,24 +17,22 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/textConnection"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/list_of_request_connection"
+                android:gravity="center"
+                android:text="there isn't Connection Request"
                 style="@style/TextView"
                 android:layout_marginTop="10dp"
                 android:textSize="30sp"
                 android:layout_marginBottom="30dp"
                 />
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_list_request"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:listitem="@layout/list_request_of_connection"/>
-            </FrameLayout>
 
         </LinearLayout>
     </ScrollView>

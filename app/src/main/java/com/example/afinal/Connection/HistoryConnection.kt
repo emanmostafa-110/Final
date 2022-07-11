@@ -57,7 +57,7 @@ class HistoryConnection : AppCompatActivity() {
         // Setting the Adapter with the recyclerview
         rv_list_history.adapter = adapter*/
 
-        initRecyclerView()
+        //initRecyclerView()
         //addDataSet()
 
 
@@ -68,7 +68,7 @@ class HistoryConnection : AppCompatActivity() {
         ConnectionAdapter.submitList(data)
     }*/
 
-    private fun initRecyclerView(): ArrayList<String> {
+    /*private fun initRecyclerView(): ArrayList<String> {
 
         rv_list_history.apply {
             layoutManager = LinearLayoutManager(this@HistoryConnection)
@@ -115,7 +115,7 @@ class HistoryConnection : AppCompatActivity() {
 
             return list
         }
-        }
+        }*/
 
 
 
