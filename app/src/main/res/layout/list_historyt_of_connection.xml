@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/DoctorName2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="Doctor name"
+                android:enabled="false"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:hint="@string/doctor_name"
+                style="@style/EditText_RecyclerView"
+
+                />
+            <TextView
+                android:id="@+id/DoctorAddress2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:autofillHints="Doctor Address"
+                android:enabled="false"
+                android:hint="@string/doctor_address"
+                style="@style/EditText_RecyclerView"
+                />
+
+            <TextView
+                android:id="@+id/DoctorPhone2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="Doctor phone"
+                android:enabled="false"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:hint="@string/doctor_phone"
+                style="@style/EditText_RecyclerView"
+
+                />
+
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="42dp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="#C32525"
+                    android:onClick="delete_action"
+                    android:text="Delete"
+                    app:backgroundTint="@null" />
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

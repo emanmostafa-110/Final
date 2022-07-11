@@ -35,7 +35,7 @@
                     android:id="@+id/rv_list_history"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:listitem="@layout/list_history_of_connection"/>
+                    tools:listitem="@layout/list_historyt_of_connection"/>
             </FrameLayout>
 
         </LinearLayout>

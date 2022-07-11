@@ -6,21 +6,31 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
+import com.example.afinal.Adapter.ConnectionAdapter
+import com.example.afinal.Adapter.SymptomsAdapter
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
 import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
+import com.example.afinal.Models.DoctorData
+import com.example.afinal.Models.SymptomsData
 import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MainActivity
 import com.example.afinal.UI.MyProfile
 import com.example.finalseizures.MyRequestArray
+import kotlinx.android.synthetic.main.activity_connection_request.*
+import kotlinx.android.synthetic.main.activity_connection_request.rv_list_request
 import kotlinx.android.synthetic.main.activity_medical_record.*
+import kotlinx.android.synthetic.main.activity_seizure_history.*
 import org.json.JSONObject
 import java.util.ArrayList
 
@@ -38,46 +48,68 @@ class MedicalRecord : AppCompatActivity() {
         getDataConnection()
     }
 
-    private fun getDataConnection(): ArrayList<String> {
-        val arrayList = arrayListOf<String>()
+    private fun getDataConnection(){
+        var list = ArrayList<SymptomsData>()
 
         Log.d("mytag", "Button clicked")
 
         // send request
-        val queue = Volley.newRequestQueue(this)
+        val queue = Volley.newRequestQueue(this@MedicalRecord)
+
         val request = MyRequestArray(
-            this,
+            this@MedicalRecord,
             Request.Method.GET,
             "/symptomData",
             null,
             { response ->
 
-                //Log.d("mytag", "$response")
+                Log.d("mytag", "$response")
+
+                if(response.length() > 0) {
+
+                    for (i in 0 until response.length()) {
+
+                       // textConnection.visibility = View.GONE
+
+                        val test = response.getJSONObject(i)
+
+                        // get the current student (json object) data
+                        list.add(
+                            SymptomsData(
+                                "Temporary confusion: ${test.getString("et_1")}",
+                                "Staring spell: ${test.getString("et_2")}",
+                                "Stiff muscles: ${test.getString("et_3")}",
+                                "Uncontrollable movements: ${test.getString("et_4")}",
+                                "Loss of consciousness: ${test.getString("et_5")}",
+                                "Psychological symptoms: ${test.getString("et_6")}",
+                                "Created At: ${test.getString("created_at")}"
+
+                            )
+                        )
+
+                        rv_symptom_history.layoutManager = LinearLayoutManager(
+                            this,
+                            RecyclerView.VERTICAL, false
+                        )
+
+                        var SymptomsAdapter = SymptomsAdapter(list)
+
+                        rv_symptom_history.adapter = SymptomsAdapter
 
 
-                for (i in 0 until  response.length()){
-Log.d("myyyy", i.toString())
-                    val symptom: JSONObject = response.getJSONObject(i)
-
-                    // get the current student (json object) data
-                    arrayList.add(symptom.getString("et_1"))
-                    arrayList.add(symptom.getString("et_2"))
-                    arrayList.add(symptom.getString("et_3"))
-                    arrayList.add(symptom.getString("et_4"))
-                    arrayList.add(symptom.getString("et_5"))
-                    arrayList.add(symptom.getString("et_6"))
-
+                    }
                 }
-                Log.d("mytag", "$arrayList")
+                Log.d("mytag", "$list")
 
             },
             { error ->
                 Log.e("mytag", "Error: $error - Status Code = ${error.networkResponse?.statusCode}")
-                Toast.makeText(this, "Connection error", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MedicalRecord, "Connection error", Toast.LENGTH_SHORT)
+                    .show()
             }
         )
+
         queue.add(request)
-        return arrayList
 
     }
 

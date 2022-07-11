@@ -8,22 +8,26 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.afinal.Adapter.ConnectionAdapter
+import com.example.afinal.Adapter.HistoryAdapter
 import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.MedicalRecord
+import com.example.afinal.Models.DoctorData
 import com.example.afinal.R
 import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.Symptoms
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
 import com.example.finalseizures.MyRequestArray
+import kotlinx.android.synthetic.main.activity_connection_request.*
 import kotlinx.android.synthetic.main.activity_history_connection.*
-import org.json.JSONObject
+import kotlinx.android.synthetic.main.activity_seizure_history.*
 
 class HistoryConnection : AppCompatActivity() {
 
@@ -33,89 +37,120 @@ class HistoryConnection : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history_connection)
 
+        initRecyclerView()
+    }
 
 
-        // this creates a vertical layout Manager
-        //rv_list_history.layoutManager = LinearLayoutManager(this)
+    private fun initRecyclerView() {
 
-       /* // ArrayList of class ItemsViewModel
-        val data = ArrayList<ServicesData>()
+        var list = ArrayList<DoctorData>()
 
-        // This loop will create 20 Views containing
-        // the image with the count of view
-        for (i in 1..20) {
-            data.add(ServicesData(DoctorName.toString()))
+        Log.d("mytag", "Button clicked")
 
-        }
+        // send request
+        val queue = Volley.newRequestQueue(this@HistoryConnection)
 
-        // This will pass the ArrayList to our Adapter
-        val adapter = ConnectionAdapter(data)
+        val request = MyRequestArray(
+            this@HistoryConnection,
+            Request.Method.GET,
+            "/connectionData",
+            null,
+            { response ->
 
-        // Setting the Adapter with the recyclerview
-        rv_list_history.adapter = adapter*/
+                Log.d("mytag", "$response")
 
-        //initRecyclerView()
-        //addDataSet()
+                if(response.length() > 0) {
+
+                    for (i in 0 until response.length()) {
+
+                       // textConnection.visibility = View.GONE
+
+                        val test = response.getJSONObject(i)
+
+                        // get the current student (json object) data
+                        list.add(
+                            DoctorData(
+                                "Name: ${test.getString("name")}",
+                                "Address: ${test.getString("address")}",
+                                "Phone: ${test.getString("phone")}"
+                            )
+                        )
+
+                        rv_list_history.layoutManager = LinearLayoutManager(
+                            this,
+                            RecyclerView.VERTICAL, false
+                        )
+
+                        var HistoryAdapter = HistoryAdapter(list)
+
+                        rv_list_history.adapter = HistoryAdapter
+
+                        /*HistoryAdapter.setonItemClickListener(object: HistoryAdapter.onItemClickListener{
+
+                            override fun delete_action(position: Int) {
+
+                                sendID(response.getJSONObject(position).getInt("id"))
+
+                            }
+                        })*/
+                    }
+                }
+                Log.d("mytag", "$list")
+
+            },
+            { error ->
+                Log.e("mytag", "Error: $error - Status Code = ${error.networkResponse?.statusCode}")
+                Toast.makeText(this@HistoryConnection, "Connection error", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        )
+
+        queue.add(request)
 
 
     }
-/*
-    private fun addDataSet(){
-        val data = DataSource.createDataSet()
-        ConnectionAdapter.submitList(data)
-    }*/
-
-    /*private fun initRecyclerView(): ArrayList<String> {
-
-        rv_list_history.apply {
-            layoutManager = LinearLayoutManager(this@HistoryConnection)
-
-            connectionAdapter = ConnectionAdapter()
-            adapter = connectionAdapter
 
 
-            var list = arrayListOf<String>()
+ /*   private fun sendID(ID: Int){
 
-            Log.d("mytag", "Button clicked")
+        val params = JSONObject()
 
-            // send request
-            val queue = Volley.newRequestQueue(this@HistoryConnection)
-            val request = MyRequestArray(
-                this@HistoryConnection,
-                Request.Method.GET,
-                "/connectionData",
-                null,
-                { response ->
+        params.put("connectionId",ID)
 
-                    Log.d("mytag", "$response")
+        val queue = Volley.newRequestQueue(this)
+        val request = MyRequest(
+            this,
+            Request.Method.POST,
+            "/AcceptRequest",
+            params,
+            { response ->
 
-                    for (i in 0 until  response.length()){
+                Log.d("mytag", "response = $response")
 
-                        val test: JSONObject = response.getJSONObject(i)
+                // goto Login activity
+                Toast.makeText(this@HistoryConnection,
+                    "${response.getString("message")}",
+                    Toast.LENGTH_LONG).show()
 
-                        // get the current student (json object) data
-                        list.add(test.getString("name"))
-                        list.add(test.getString("address"))
-                        list.add(test.getString("phone"))
-                        list.add(test.getString("email"))
+                // if there is an error (wrong email or password)
+                if (response.has("error")) {
+                    val errorMesssage = response.getString("error")
+                    Toast.makeText(this, errorMesssage, Toast.LENGTH_SHORT).show()
 
-                    }
-                    Log.d("mytag", "$list")
-
-                },
-                { error ->
-                    Log.e("mytag", "Error: $error - Status Code = ${error.networkResponse?.statusCode}")
-                    Toast.makeText(this@HistoryConnection, "Connection error", Toast.LENGTH_SHORT).show()
                 }
-            )
-            queue.add(request)
+            },
+            { error ->
+                Log.e(
+                    "mytag",
+                    "Error: $error - Status Code = ${error.networkResponse?.statusCode}"
+                )
+                Toast.makeText(this, "Connection error", Toast.LENGTH_SHORT).show()
+            }
+        )
+        queue.add(request)
+    }
 
-            return list
-        }
-        }*/
-
-
-
+*/
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menue, menu)

@@ -35,9 +35,9 @@
     <string name="notes">Notes:</string>
     <string name="your_password_must_start_with_capital_character_upper_and_lower_latters_must_contain_numbers_and_special_character"><![CDATA[Your password must start with capital Character & Upper and lower latters & must contain numbers and special character]]></string>
     <string name="login">Login</string>
-    <string name="first_name">First Name :     </string>
-    <string name="last_name">Last name :      </string>
-    <string name="phone_number">Phone Number :</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last name </string>
+    <string name="phone_number">Phone Number</string>
     <string name="country">Country</string>
     <string name="city">City</string>
     <string name="registration">Registration</string>
@@ -140,4 +140,5 @@
     <string name="delete">Delete</string>
     <string name="on_alarm">On Alarm</string>
     <string name="change_time">Change Time</string>
+    <string name="create_at">Create At</string>
 </resources>

@@ -32,7 +32,7 @@
                     android:id="@+id/rv_list_request"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:listitem="@layout/list_request_of_connection"/>
+                    tools:listitem="@layout/list_connection_request"/>
 
         </LinearLayout>
     </ScrollView>

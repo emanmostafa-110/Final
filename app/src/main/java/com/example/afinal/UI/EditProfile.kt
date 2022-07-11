@@ -10,24 +10,17 @@ import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.afinal.*
+import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
-import com.example.afinal.Information.Alarm
+
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.Signal.SeizureHistory
 import com.example.finalseizures.MyRequest
 import kotlinx.android.synthetic.main.activity_edit_profile.*
-import kotlinx.android.synthetic.main.activity_edit_profile.DateBirth
-import kotlinx.android.synthetic.main.activity_edit_profile.Yournational_id
-import kotlinx.android.synthetic.main.activity_edit_profile.yourAddress
-import kotlinx.android.synthetic.main.activity_edit_profile.yourEmail
-import kotlinx.android.synthetic.main.activity_edit_profile.yourGender
-import kotlinx.android.synthetic.main.activity_edit_profile.yourName
-import kotlinx.android.synthetic.main.activity_edit_profile.yourPhone
-import kotlinx.android.synthetic.main.activity_my_profile.*
-import kotlinx.android.synthetic.main.activity_registration.*
+
 import org.json.JSONObject
 
 class EditProfile : AppCompatActivity() {
@@ -102,7 +95,7 @@ class EditProfile : AppCompatActivity() {
 
                 val profile = response.getJSONObject("data")
 
-                etFirstName.text = profile.getString("firstName")
+               /* etFirstName.text = profile.getString("firstName")
                 etLastName.text = profile.getString("lastName")
                 etEmail.text = profile.getString("email")
                 etCity.text =profile.getString("city")
@@ -111,7 +104,7 @@ class EditProfile : AppCompatActivity() {
                 etNationalID.text=profile.getString("national_id")
                 etGender.text = profile.getString("gender")
                 etBOD.text=profile.getString("birth_day")
-
+*/
                 // if there is an error (wrong email or password)
                 if (response.has("error")) {
                     val errorMesssage = response.getString("error")

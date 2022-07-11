@@ -1,15 +1,13 @@
 package com.example.afinal.Adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.afinal.Models.DoctorData
 import com.example.afinal.R
-import kotlinx.android.synthetic.main.list_history_of_connection.view.*
+import kotlinx.android.synthetic.main.list_connection_request.view.*
+
 
 class ConnectionAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adapter<ConnectionAdapter.ViewHolder>() {
 
@@ -28,7 +26,7 @@ class ConnectionAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adap
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.list_history_of_connection,
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.list_connection_request,
             parent,false)
 
         return ViewHolder(v,mListener)
