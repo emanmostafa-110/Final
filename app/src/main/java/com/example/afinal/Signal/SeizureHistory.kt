@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.RecyclerView
 import com.example.afinal.*
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
@@ -16,9 +17,12 @@ import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
 
 class SeizureHistory : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seizure_history)
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
