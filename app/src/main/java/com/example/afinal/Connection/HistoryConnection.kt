@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
-import com.example.afinal.Adapter.ConnectionAdapter
-import com.example.afinal.Adapter.HistoryAdapter
 import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
@@ -31,126 +29,15 @@ import kotlinx.android.synthetic.main.activity_seizure_history.*
 
 class HistoryConnection : AppCompatActivity() {
 
-    private lateinit var connectionAdapter: ConnectionAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history_connection)
 
-        initRecyclerView()
-    }
-
-
-    private fun initRecyclerView() {
-
-        var list = ArrayList<DoctorData>()
-
-        Log.d("mytag", "Button clicked")
-
-        // send request
-        val queue = Volley.newRequestQueue(this@HistoryConnection)
-
-        val request = MyRequestArray(
-            this@HistoryConnection,
-            Request.Method.GET,
-            "/connectionData",
-            null,
-            { response ->
-
-                Log.d("mytag", "$response")
-
-                if(response.length() > 0) {
-
-                    for (i in 0 until response.length()) {
-
-                       // textConnection.visibility = View.GONE
-
-                        val test = response.getJSONObject(i)
-
-                        // get the current student (json object) data
-                        list.add(
-                            DoctorData(
-                                "Name: ${test.getString("name")}",
-                                "Address: ${test.getString("address")}",
-                                "Phone: ${test.getString("phone")}"
-                            )
-                        )
-
-                        rv_list_history.layoutManager = LinearLayoutManager(
-                            this,
-                            RecyclerView.VERTICAL, false
-                        )
-
-                        var HistoryAdapter = HistoryAdapter(list)
-
-                        rv_list_history.adapter = HistoryAdapter
-
-                        /*HistoryAdapter.setonItemClickListener(object: HistoryAdapter.onItemClickListener{
-
-                            override fun delete_action(position: Int) {
-
-                                sendID(response.getJSONObject(position).getInt("id"))
-
-                            }
-                        })*/
-                    }
-                }
-                Log.d("mytag", "$list")
-
-            },
-            { error ->
-                Log.e("mytag", "Error: $error - Status Code = ${error.networkResponse?.statusCode}")
-                Toast.makeText(this@HistoryConnection, "Connection error", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        )
-
-        queue.add(request)
-
 
     }
 
-
- /*   private fun sendID(ID: Int){
-
-        val params = JSONObject()
-
-        params.put("connectionId",ID)
-
-        val queue = Volley.newRequestQueue(this)
-        val request = MyRequest(
-            this,
-            Request.Method.POST,
-            "/AcceptRequest",
-            params,
-            { response ->
-
-                Log.d("mytag", "response = $response")
-
-                // goto Login activity
-                Toast.makeText(this@HistoryConnection,
-                    "${response.getString("message")}",
-                    Toast.LENGTH_LONG).show()
-
-                // if there is an error (wrong email or password)
-                if (response.has("error")) {
-                    val errorMesssage = response.getString("error")
-                    Toast.makeText(this, errorMesssage, Toast.LENGTH_SHORT).show()
-
-                }
-            },
-            { error ->
-                Log.e(
-                    "mytag",
-                    "Error: $error - Status Code = ${error.networkResponse?.statusCode}"
-                )
-                Toast.makeText(this, "Connection error", Toast.LENGTH_SHORT).show()
-            }
-        )
-        queue.add(request)
-    }
-
-*/
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menue, menu)

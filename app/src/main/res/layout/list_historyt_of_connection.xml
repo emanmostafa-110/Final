@@ -22,7 +22,7 @@
             >
 
             <TextView
-                android:id="@+id/DoctorName2"
+                android:id="@+id/DoctorName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints="Doctor name"
@@ -34,7 +34,7 @@
 
                 />
             <TextView
-                android:id="@+id/DoctorAddress2"
+                android:id="@+id/DoctorAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -45,7 +45,7 @@
                 />
 
             <TextView
-                android:id="@+id/DoctorPhone2"
+                android:id="@+id/DoctorPhone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints="Doctor phone"
