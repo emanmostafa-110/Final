@@ -69,6 +69,7 @@
                     android:layout_height="42dp"
                     android:layout_margin="@dimen/_10sdp"
                     android:background="#C32525"
+                    android:onClick="accept_action"
                     android:text="Accept"
                     app:backgroundTint="@null" />
 

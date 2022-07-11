@@ -1,8 +1,11 @@
 package com.example.afinal.Adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.afinal.Models.DoctorData
 import com.example.afinal.R
@@ -10,13 +13,25 @@ import kotlinx.android.synthetic.main.list_history_of_connection.view.*
 
 class ConnectionAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adapter<ConnectionAdapter.ViewHolder>() {
 
+    private lateinit var mListener : onItemClickListener
+
+    interface onItemClickListener {
+
+        fun accept_action(position: Int)
+
+    }
+
+    fun setonItemClickListener(listener : onItemClickListener){
+        mListener = listener
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val v = LayoutInflater.from(parent.context).inflate(R.layout.list_history_of_connection,
             parent,false)
 
-        return ViewHolder(v)
+        return ViewHolder(v,mListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -27,6 +42,7 @@ class ConnectionAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adap
         holder.doctorAddress.text = services.doctorAddress
         holder.doctorPhone.text = services.doctorPhone
 
+
     }
 
     override fun getItemCount(): Int {
@@ -34,11 +50,19 @@ class ConnectionAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adap
     }
 
 
-    class ViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder (itemView : View,listener : onItemClickListener) : RecyclerView.ViewHolder(itemView) {
 
         val doctorName = itemView.DoctorName
         val doctorAddress = itemView.DoctorAddress
         val doctorPhone = itemView.DoctorPhone
+
+        init {
+
+            itemView.btnAccept.setOnClickListener {
+                listener.accept_action(adapterPosition)
+            }
+
+        }
 
     }
 
