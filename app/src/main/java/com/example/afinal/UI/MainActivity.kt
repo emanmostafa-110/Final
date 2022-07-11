@@ -9,7 +9,7 @@ import android.widget.Button
 import com.example.afinal.*
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
-import com.example.afinal.Information.Alarm
+import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo

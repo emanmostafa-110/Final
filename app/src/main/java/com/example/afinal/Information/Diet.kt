@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.example.afinal.*
+import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
 import com.example.afinal.Signal.SeizureHistory

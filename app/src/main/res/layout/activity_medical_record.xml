@@ -95,131 +95,25 @@
                     android:text="Symptoms of signals"
                     android:textSize="30sp" />
 
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/temporary" />
-                <TextView
-                    android:id="@+id/et_7"
-                    android:enabled="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/editshape"
-                    android:hint="@string/enter_yes_or_no"
-                    android:padding="10dp"
-                    android:textColor="@color/text"
-                    android:textColorHint="#AE000000"
-                    android:textSize="18sp"
-                    app:layout_constraintTop_toBottomOf="@id/et_fname" />
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/staring"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/et_8"
-                    android:enabled="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/editshape"
-                    android:hint="@string/enter_yes_or_no"
-                    android:padding="10dp"
-                    android:textColor="@color/text"
-                    android:textColorHint="#AE000000"
-                    android:textSize="18sp"
-                    app:layout_constraintTop_toBottomOf="@id/et_fname" />
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/stiff"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/et_9"
-                    android:enabled="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/editshape"
-                    android:hint="@string/enter_yes_or_no"
-                    android:padding="10dp"
-                    android:textColor="@color/text"
-                    android:textColorHint="#AE000000"
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/uncontrollable" />
-                <TextView
-                    android:id="@+id/et_10"
-                    android:enabled="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/editshape"
-                    android:hint="@string/enter_yes_or_no"
-                    android:padding="10dp"
-                    android:textColor="@color/text"
-                    android:textColorHint="#AE000000"
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unconsciousness" />
-                <TextView
-                    android:id="@+id/et_11"
-                    android:enabled="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/editshape"
-                    android:hint="@string/enter_yes_or_no"
-                    android:padding="10dp"
-                    android:textColor="@color/text"
-                    android:textColorHint="#AE000000"
-                    android:textSize="18sp"
-                    />
-                <TextView
-                    style="@style/TextView"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/psychological" />
-                <TextView
-                    android:id="@+id/et_12"
-                    android:enabled="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/editshape"
-                    android:hint="@string/enter_yes_or_no"
-                    android:padding="10dp"
-                    android:textColor="@color/text"
-                    android:textColorHint="#AE000000"
-                    android:textSize="18sp"
-                    />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rv_list_history"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                tools:listitem="@layout/symptoms_recycler"/>
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+
 
                 <Button
                     android:id="@+id/good"
@@ -229,6 +123,7 @@
                     />
 
             </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

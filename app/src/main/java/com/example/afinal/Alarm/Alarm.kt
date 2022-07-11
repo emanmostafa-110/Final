@@ -1,21 +1,42 @@
-package com.example.afinal.Information
+package com.example.afinal.Alarm
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import com.example.afinal.*
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
+import com.example.afinal.Information.Diet
+import com.example.afinal.Information.FrequentQuestion
+import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
+import kotlinx.android.synthetic.main.activity_alarm.*
 
 class Alarm : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarm)
+
+        btn_setTime.setOnClickListener {
+            var sec:Int =et_sec.text.toString().toInt()
+            var intent =Intent(applicationContext,Receive::class.java)
+            var pi:PendingIntent =PendingIntent.getBroadcast(applicationContext,111,intent,0)
+            var am :AlarmManager =getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            am.set(AlarmManager.RTC_WAKEUP,System.currentTimeMillis()+(sec*1000),pi)
+            Toast.makeText(applicationContext,"Alarm set for $sec Seconds",Toast.LENGTH_SHORT).show()
+
+
+        }
+
     }
 
 

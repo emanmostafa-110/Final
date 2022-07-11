@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
@@ -20,6 +19,15 @@ import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.Signal.SeizureHistory
 import com.example.finalseizures.MyRequest
 import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.activity_edit_profile.DateBirth
+import kotlinx.android.synthetic.main.activity_edit_profile.Yournational_id
+import kotlinx.android.synthetic.main.activity_edit_profile.yourAddress
+import kotlinx.android.synthetic.main.activity_edit_profile.yourEmail
+import kotlinx.android.synthetic.main.activity_edit_profile.yourGender
+import kotlinx.android.synthetic.main.activity_edit_profile.yourName
+import kotlinx.android.synthetic.main.activity_edit_profile.yourPhone
+import kotlinx.android.synthetic.main.activity_my_profile.*
+import kotlinx.android.synthetic.main.activity_registration.*
 import org.json.JSONObject
 
 class EditProfile : AppCompatActivity() {
@@ -94,15 +102,15 @@ class EditProfile : AppCompatActivity() {
 
                 val profile = response.getJSONObject("data")
 
-                textView1.text = profile.getString("firstName")
-                textView2.text = profile.getString("lastName")
-                textView3.text = profile.getString("email")
-                textView4.text =profile.getString("city")
-                textView5.text = profile.getString("country")
-                textView6.text = profile.getString("phone")
-                textView7.text=profile.getString("national_id")
-                textView8.text = profile.getString("gender")
-                textView9.text=profile.getString("birth_day")
+                etFirstName.text = profile.getString("firstName")
+                etLastName.text = profile.getString("lastName")
+                etEmail.text = profile.getString("email")
+                etCity.text =profile.getString("city")
+                etCountry.text = profile.getString("country")
+                etPhone.text = profile.getString("phone")
+                etNationalID.text=profile.getString("national_id")
+                etGender.text = profile.getString("gender")
+                etBOD.text=profile.getString("birth_day")
 
                 // if there is an error (wrong email or password)
                 if (response.has("error")) {

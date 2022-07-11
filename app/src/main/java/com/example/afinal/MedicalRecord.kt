@@ -11,7 +11,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
-import com.example.afinal.Information.Alarm
+import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
@@ -19,11 +19,8 @@ import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MainActivity
 import com.example.afinal.UI.MyProfile
-import com.example.afinal.UI.Registration
-import com.example.finalseizures.MyRequest
 import com.example.finalseizures.MyRequestArray
 import kotlinx.android.synthetic.main.activity_medical_record.*
-import kotlinx.android.synthetic.main.activity_my_profile.*
 import org.json.JSONObject
 import java.util.ArrayList
 
@@ -38,7 +35,7 @@ class MedicalRecord : AppCompatActivity() {
             startActivity(intent)
 
         }
-getDataConnection()
+        getDataConnection()
     }
 
     private fun getDataConnection(): ArrayList<String> {
@@ -55,10 +52,11 @@ getDataConnection()
             null,
             { response ->
 
-                Log.d("mytag", "$response")
+                //Log.d("mytag", "$response")
+
 
                 for (i in 0 until  response.length()){
-
+Log.d("myyyy", i.toString())
                     val symptom: JSONObject = response.getJSONObject(i)
 
                     // get the current student (json object) data

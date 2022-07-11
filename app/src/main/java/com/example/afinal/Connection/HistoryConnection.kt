@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.afinal.Adapter.ConnectionAdapter
-import com.example.afinal.Information.Alarm
+import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
@@ -21,11 +21,8 @@ import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.Symptoms
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
-import com.example.finalseizures.MyRequest
 import com.example.finalseizures.MyRequestArray
 import kotlinx.android.synthetic.main.activity_history_connection.*
-import kotlinx.android.synthetic.main.activity_my_profile.*
-import kotlinx.android.synthetic.main.list_history_of_connection.view.*
 import org.json.JSONObject
 
 class HistoryConnection : AppCompatActivity() {

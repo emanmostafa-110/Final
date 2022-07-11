@@ -138,4 +138,6 @@
     <string name="doctor_phone">Doctor phone</string>
     <string name="doctor_email">Doctor Email</string>
     <string name="delete">Delete</string>
+    <string name="on_alarm">On Alarm</string>
+    <string name="change_time">Change Time</string>
 </resources>
