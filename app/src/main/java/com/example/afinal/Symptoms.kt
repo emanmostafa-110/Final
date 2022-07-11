@@ -11,7 +11,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
-import com.example.afinal.Information.Alarm
+import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
@@ -19,9 +19,7 @@ import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MainActivity
 import com.example.afinal.UI.MyProfile
-import com.example.afinal.UI.Registration
 import com.example.finalseizures.MyRequest
-import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.activity_symptoms.*
 import org.json.JSONObject
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Alarm.Alarm"
+    tools:context=".Alarm.AlarmOnActive"
     android:orientation="vertical"
     android:gravity="center"
     >
@@ -15,32 +15,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Set Alarm"
+        android:text="Alarm On Active"
         android:textColor="@color/text"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:textSize="20pt"
         />
 
-    <EditText
-        android:id="@+id/et_sec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter Second"
-        android:inputType="number"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:textColor="@color/text"
-        android:textStyle="bold"
-        />
+
     <Button
-        android:id="@+id/btn_setTime"
+        android:id="@+id/btn_stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:background="@android:color/holo_green_dark"
         android:layout_gravity="center"
-        android:text="Set time"
+        android:text="Stop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvShowTime" />
