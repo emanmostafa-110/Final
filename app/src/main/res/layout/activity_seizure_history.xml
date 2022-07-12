@@ -22,6 +22,18 @@
             android:textColor="@color/colorText"
             android:layout_margin="10dp"
             />
+
+        <TextView
+            android:id="@+id/textConnection4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="There isn't signal "
+            style="@style/TextView"
+            android:layout_marginTop="10dp"
+            android:textSize="30sp"
+            android:layout_marginBottom="30dp"
+            />
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

@@ -12,6 +12,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+        <TextView
+            style="@style/TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:text="Personal Data"
+            android:textSize="30sp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,12 +39,11 @@
                 android:textColor="#8946A6"
                 android:textSize="20sp"
                 />
-            <EditText
+            <TextView
                 android:id="@+id/et_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/editshape"
                 android:textColor="@color/text"
                 android:textColorHint="#AE000000"
                 android:textSize="20sp"
@@ -63,12 +70,41 @@
                 android:textColor="#8946A6"
                 android:textSize="20sp"
                 />
-            <EditText
+            <TextView
                 android:id="@+id/et_birthdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/editshape"
+                android:textColor="@color/text"
+                android:textColorHint="#AE000000"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/gender"
+                android:textStyle="bold"
+                android:textColor="#8946A6"
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/et_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:textColor="@color/text"
                 android:textColorHint="#AE000000"
                 android:textSize="20sp"
@@ -100,7 +136,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-
+                        <TextView
+                            android:id="@+id/textConnection3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="There isn't symptoms "
+                            style="@style/TextView"
+                            android:layout_marginTop="10dp"
+                            android:textSize="30sp"
+                            android:layout_marginBottom="30dp"
+                            />
                         <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">

@@ -25,10 +25,12 @@ import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.Symptoms
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
+import com.example.finalseizures.MyRequest
 import com.example.finalseizures.MyRequestArray
 import kotlinx.android.synthetic.main.activity_connection_request.*
 import kotlinx.android.synthetic.main.activity_history_connection.*
 import kotlinx.android.synthetic.main.activity_seizure_history.*
+import org.json.JSONObject
 
 class HistoryConnection : AppCompatActivity() {
 
@@ -87,9 +89,12 @@ class HistoryConnection : AppCompatActivity() {
 
                             override fun delete_action(position: Int) {
 
-                            Toast.makeText(this@HistoryConnection
-                                ,"OKKKK",
-                                Toast.LENGTH_LONG).show()
+
+                                sendID2(response.getJSONObject(position).getInt("id"))
+                                    val intent = Intent(this@HistoryConnection,
+                                        HistoryConnection::class.java)
+                                    startActivity(intent)
+
                             }
                         })
                     }
@@ -108,6 +113,46 @@ class HistoryConnection : AppCompatActivity() {
 
 
     }
+
+    private fun sendID2(ID: Int){
+
+        val params = JSONObject()
+
+        params.put("connectionId",ID)
+
+        val queue = Volley.newRequestQueue(this)
+        val request = MyRequest(
+            this,
+            Request.Method.POST,
+            "/ConnectionDelete",
+            params,
+            { response ->
+
+                Log.d("mytag", "response = $response")
+
+                // goto Login activity
+                Toast.makeText(this@HistoryConnection,
+                    "${response.getString("message")}",
+                    Toast.LENGTH_LONG).show()
+
+                // if there is an error (wrong email or password)
+                if (response.has("error")) {
+                    val errorMesssage = response.getString("error")
+                    Toast.makeText(this, errorMesssage, Toast.LENGTH_SHORT).show()
+
+                }
+            },
+            { error ->
+                Log.e(
+                    "mytag",
+                    "Error: $error - Status Code = ${error.networkResponse?.statusCode}"
+                )
+                Toast.makeText(this, "Connection error", Toast.LENGTH_SHORT).show()
+            }
+        )
+        queue.add(request)
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

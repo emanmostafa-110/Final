@@ -69,7 +69,7 @@ class MedicalRecord : AppCompatActivity() {
 
                     for (i in 0 until response.length()) {
 
-                       // textConnection.visibility = View.GONE
+                       textConnection3.visibility = View.GONE
 
                         val test = response.getJSONObject(i)
 

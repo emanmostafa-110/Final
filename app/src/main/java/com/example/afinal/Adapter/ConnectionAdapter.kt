@@ -16,6 +16,7 @@ class ConnectionAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adap
     interface onItemClickListener {
 
         fun accept_action(position: Int)
+        fun reject_action(position: Int)
 
     }
 
@@ -58,6 +59,9 @@ class ConnectionAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adap
 
             itemView.btnAccept.setOnClickListener {
                 listener.accept_action(adapterPosition)
+            }
+            itemView.btnReject.setOnClickListener {
+                listener.reject_action(adapterPosition)
             }
 
         }

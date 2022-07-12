@@ -83,6 +83,14 @@ class ConnectionRequest : AppCompatActivity() {
                                     ConnectionRequest::class.java)
                                 startActivity(intent)
                             }
+
+                            override fun reject_action(position: Int) {
+
+                                sendID2(response.getJSONObject(position).getInt("id"))
+                                val intent = Intent(this@ConnectionRequest,
+                                    ConnectionRequest::class.java)
+                                startActivity(intent)
+                            }
                         })
                     }
 
@@ -122,6 +130,45 @@ class ConnectionRequest : AppCompatActivity() {
                 Toast.makeText(this@ConnectionRequest,
                     "${response.getString("message")}",
                 Toast.LENGTH_LONG).show()
+
+                // if there is an error (wrong email or password)
+                if (response.has("error")) {
+                    val errorMesssage = response.getString("error")
+                    Toast.makeText(this, errorMesssage, Toast.LENGTH_SHORT).show()
+
+                }
+            },
+            { error ->
+                Log.e(
+                    "mytag",
+                    "Error: $error - Status Code = ${error.networkResponse?.statusCode}"
+                )
+                Toast.makeText(this, "Connection error", Toast.LENGTH_SHORT).show()
+            }
+        )
+        queue.add(request)
+    }
+
+    private fun sendID2(ID: Int){
+
+        val params = JSONObject()
+
+        params.put("connectionId",ID)
+
+        val queue = Volley.newRequestQueue(this)
+        val request = MyRequest(
+            this,
+            Request.Method.POST,
+            "/RejectRequest",
+            params,
+            { response ->
+
+                Log.d("mytag", "response = $response")
+
+                // goto Login activity
+                Toast.makeText(this@ConnectionRequest,
+                    "${response.getString("message")}",
+                    Toast.LENGTH_LONG).show()
 
                 // if there is an error (wrong email or password)
                 if (response.has("error")) {
