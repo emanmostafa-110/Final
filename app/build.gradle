@@ -52,13 +52,11 @@ dependencies {
 
     implementation "com.squareup.okhttp3:okhttp:4.9.0"
 
-// for adding recyclerview
+    // for adding recyclerview
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     // for adding cardview
     implementation 'androidx.cardview:cardview:1.0.0'
-
-
 
 }
 

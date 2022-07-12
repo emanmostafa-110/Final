@@ -49,7 +49,8 @@ class ConnectionAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adap
     }
 
 
-    class ViewHolder (itemView : View,listener : onItemClickListener) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder (itemView : View,listener : onItemClickListener) :
+        RecyclerView.ViewHolder(itemView) {
 
         val doctorName = itemView.DoctorName
         val doctorAddress = itemView.DoctorAddress

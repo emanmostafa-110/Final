@@ -7,37 +7,33 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.afinal.Models.DoctorData
 import com.example.afinal.R
 import kotlinx.android.synthetic.main.list_connection_request.view.*
-import kotlinx.android.synthetic.main.list_connection_request.view.DoctorAddress
-import kotlinx.android.synthetic.main.list_connection_request.view.DoctorName
-import kotlinx.android.synthetic.main.list_connection_request.view.DoctorPhone
-import kotlinx.android.synthetic.main.list_historyt_of_connection.view.*
 
-class HistoryAdapter (var myList2 : ArrayList<DoctorData>) : RecyclerView.Adapter<HistoryAdapter.ViewHolder>()  {
+class HistoryAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adapter<HistoryAdapter.ViewHolder>()  {
 
-    private lateinit var mListener2 : onItemClickListener
+    private lateinit var mListener : onItemClickListener
 
     interface onItemClickListener {
 
-        fun delete_action(position: Int)
+        fun accept_action(position: Int)
 
     }
 
     fun setonItemClickListener(listener : onItemClickListener){
-        mListener2 = listener
+        mListener = listener
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryAdapter.ViewHolder {
 
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.list_historyt_of_connection,
+        val v = LayoutInflater.from(parent.context).inflate(
+            R.layout.list_historyt_of_connection,
             parent,false)
 
-        return ViewHolder(v, mListener2)
+        return HistoryAdapter.ViewHolder(v, mListener)
     }
 
-
     override fun onBindViewHolder(holder: HistoryAdapter.ViewHolder, position: Int) {
-        var services = myList2[position]
+        var services = myList[position]
 
         holder.doctorName.text = services.doctorName
         holder.doctorAddress.text = services.doctorAddress
@@ -46,7 +42,7 @@ class HistoryAdapter (var myList2 : ArrayList<DoctorData>) : RecyclerView.Adapte
 
 
     override fun getItemCount(): Int {
-        return myList2.size
+        return myList.size
     }
     class ViewHolder (itemView : View, listener : HistoryAdapter.onItemClickListener) : RecyclerView.ViewHolder(itemView) {
 
@@ -56,8 +52,8 @@ class HistoryAdapter (var myList2 : ArrayList<DoctorData>) : RecyclerView.Adapte
 
         init {
 
-            itemView.btnDelete.setOnClickListener {
-                listener.delete_action(adapterPosition)
+            itemView.btnAccept.setOnClickListener {
+                listener.accept_action(adapterPosition)
             }
 
         }

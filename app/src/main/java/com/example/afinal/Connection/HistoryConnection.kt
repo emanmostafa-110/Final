@@ -25,23 +25,21 @@ import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.Symptoms
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
-import com.example.finalseizures.MyRequest
 import com.example.finalseizures.MyRequestArray
 import kotlinx.android.synthetic.main.activity_connection_request.*
 import kotlinx.android.synthetic.main.activity_history_connection.*
 import kotlinx.android.synthetic.main.activity_seizure_history.*
-import org.json.JSONObject
 
 class HistoryConnection : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history_connection)
-        initRecyclerView2()
+        initRecyclerView()
 
     }
 
-    private fun initRecyclerView2() {
+    private fun initRecyclerView() {
 
         var list = ArrayList<DoctorData>()
 
@@ -63,7 +61,7 @@ class HistoryConnection : AppCompatActivity() {
 
                     for (i in 0 until response.length()) {
 
-                        textConnection2.visibility = View.GONE
+                        //textConnection.visibility = View.GONE
 
                         val test = response.getJSONObject(i)
 
@@ -71,8 +69,8 @@ class HistoryConnection : AppCompatActivity() {
                         list.add(
                             DoctorData(
                                 "Name: ${test.getString("name")}",
-                                "Address: ${test.getString("address")}",
-                                "phone: ${test.getString("phone")}"
+                                test.getString("address"),
+                                test.getString("phone")
                             )
                         )
 
@@ -85,18 +83,14 @@ class HistoryConnection : AppCompatActivity() {
 
                         rv_list_history.adapter = HistoryAdapter
 
-                        HistoryAdapter.setonItemClickListener(object: HistoryAdapter.onItemClickListener{
+                       /* HistoryAdapter.setonItemClickListener(object: HistoryAdapter.onItemClickListener{
 
-                            override fun delete_action(position: Int) {
+                            override fun accept_action(position: Int) {
 
-
-                                sendID2(response.getJSONObject(position).getInt("id"))
-                                    val intent = Intent(this@HistoryConnection,
-                                        HistoryConnection::class.java)
-                                    startActivity(intent)
+                                sendID(response.getJSONObject(position).getInt("id"))
 
                             }
-                        })
+                        })*/
                     }
                 }
                 Log.d("mytag", "$list")
@@ -113,46 +107,6 @@ class HistoryConnection : AppCompatActivity() {
 
 
     }
-
-    private fun sendID2(ID: Int){
-
-        val params = JSONObject()
-
-        params.put("connectionId",ID)
-
-        val queue = Volley.newRequestQueue(this)
-        val request = MyRequest(
-            this,
-            Request.Method.POST,
-            "/ConnectionDelete",
-            params,
-            { response ->
-
-                Log.d("mytag", "response = $response")
-
-                // goto Login activity
-                Toast.makeText(this@HistoryConnection,
-                    "${response.getString("message")}",
-                    Toast.LENGTH_LONG).show()
-
-                // if there is an error (wrong email or password)
-                if (response.has("error")) {
-                    val errorMesssage = response.getString("error")
-                    Toast.makeText(this, errorMesssage, Toast.LENGTH_SHORT).show()
-
-                }
-            },
-            { error ->
-                Log.e(
-                    "mytag",
-                    "Error: $error - Status Code = ${error.networkResponse?.statusCode}"
-                )
-                Toast.makeText(this, "Connection error", Toast.LENGTH_SHORT).show()
-            }
-        )
-        queue.add(request)
-    }
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
