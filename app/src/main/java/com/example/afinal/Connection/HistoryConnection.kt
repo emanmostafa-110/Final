@@ -20,6 +20,7 @@ import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.MedicalRecord
 import com.example.afinal.Models.DoctorData
+import com.example.afinal.Models.HistroyData
 import com.example.afinal.R
 import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.Symptoms
@@ -41,7 +42,7 @@ class HistoryConnection : AppCompatActivity() {
 
     private fun initRecyclerView() {
 
-        var list = ArrayList<DoctorData>()
+        var list = ArrayList<HistroyData>()
 
         Log.d("mytag", "Button clicked")
 
@@ -67,7 +68,7 @@ class HistoryConnection : AppCompatActivity() {
 
                         // get the current student (json object) data
                         list.add(
-                            DoctorData(
+                            HistroyData(
                                 "Name: ${test.getString("name")}",
                                 test.getString("address"),
                                 test.getString("phone")
@@ -83,14 +84,15 @@ class HistoryConnection : AppCompatActivity() {
 
                         rv_list_history.adapter = HistoryAdapter
 
-                       /* HistoryAdapter.setonItemClickListener(object: HistoryAdapter.onItemClickListener{
+                        HistoryAdapter.setonItemClickListener(object: HistoryAdapter.onItemClickListener{
 
-                            override fun accept_action(position: Int) {
+                            override fun delete_action(position: Int) {
 
-                                sendID(response.getJSONObject(position).getInt("id"))
+                                Toast.makeText(this@HistoryConnection,
+                                "$position",Toast.LENGTH_LONG).show()
 
                             }
-                        })*/
+                        })
                     }
                 }
                 Log.d("mytag", "$list")

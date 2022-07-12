@@ -5,18 +5,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.afinal.Models.DoctorData
+import com.example.afinal.Models.HistroyData
 import com.example.afinal.R
 import kotlinx.android.synthetic.main.list_connection_request.view.*
 import kotlinx.android.synthetic.main.list_historyt_of_connection.view.*
 
-class HistoryAdapter (var myList : ArrayList<DoctorData>) :
+class HistoryAdapter (var myList : ArrayList<HistroyData>) :
     RecyclerView.Adapter<HistoryAdapter.ViewHolder>()  {
 
     private lateinit var mListener : onItemClickListener
 
     interface onItemClickListener {
 
-        fun accept_action(position: Int)
+        fun delete_action(position: Int)
 
     }
 
@@ -55,8 +56,8 @@ class HistoryAdapter (var myList : ArrayList<DoctorData>) :
 
         init {
 
-            itemView.btnAccept.setOnClickListener {
-                listener.accept_action(adapterPosition)
+            itemView.btnDelete.setOnClickListener {
+                listener.delete_action(adapterPosition)
             }
 
         }
