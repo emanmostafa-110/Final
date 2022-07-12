@@ -141,4 +141,5 @@
     <string name="on_alarm">On Alarm</string>
     <string name="change_time">Change Time</string>
     <string name="create_at">Create At</string>
+    <string name="done">Done</string>
 </resources>

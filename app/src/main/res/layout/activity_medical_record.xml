@@ -75,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:layout_gravity="center"
                 android:textColor="@color/text"
                 android:textColorHint="#AE000000"
                 android:textSize="20sp"
@@ -101,6 +102,7 @@
                 android:textSize="20sp"
                 />
             <TextView
+                android:layout_gravity="center"
                 android:id="@+id/et_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -163,9 +165,10 @@
 
                 <Button
                     android:id="@+id/good"
+                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="GOOOD"
+                    android:text="@string/done"
                     />
 
             </LinearLayout>

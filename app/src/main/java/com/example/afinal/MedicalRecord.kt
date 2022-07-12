@@ -26,10 +26,12 @@ import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MainActivity
 import com.example.afinal.UI.MyProfile
+import com.example.finalseizures.MyRequest
 import com.example.finalseizures.MyRequestArray
 import kotlinx.android.synthetic.main.activity_connection_request.*
 import kotlinx.android.synthetic.main.activity_connection_request.rv_list_request
 import kotlinx.android.synthetic.main.activity_medical_record.*
+import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.activity_seizure_history.*
 import org.json.JSONObject
 import java.util.ArrayList
@@ -45,16 +47,53 @@ class MedicalRecord : AppCompatActivity() {
             startActivity(intent)
 
         }
-        getDataConnection()
+        getPersonalData()
+        getDataSymptoms()
+    }
+    private fun getPersonalData(){
+
+        // send request
+        val queue = Volley.newRequestQueue(this)
+        val request = MyRequest(
+            this,
+            Request.Method.GET,
+            "/profileShow",
+            null,
+            { response ->
+
+                Log.d("mytag", "response = $response")
+
+                val profile = response.getJSONObject("data")
+
+                et_name.text = "${profile.getString("firstName")} ${profile.getString("lastName")}"
+                et_birthdate.text = profile.getString("birth_day")
+                et_gender.text = profile.getString("gender")
+
+                // if there is an error (wrong email or password)
+                if (response.has("error")) {
+                    val errorMesssage = response.getString("error")
+                    Toast.makeText(this, errorMesssage, Toast.LENGTH_SHORT).show()
+
+                }
+            },
+            { error ->
+                Log.e(
+                    "mytag",
+                    "Error: $error - Status Code = ${error.networkResponse?.statusCode}"
+                )
+                Toast.makeText(this, "Connection error", Toast.LENGTH_SHORT).show()
+            }
+        )
+        queue.add(request)
     }
 
-    private fun getDataConnection(){
+    private fun getDataSymptoms(){
         var list = ArrayList<SymptomsData>()
 
         Log.d("mytag", "Button clicked")
 
         // send request
-        val queue = Volley.newRequestQueue(this@MedicalRecord)
+        val queue = Volley.newRequestQueue(this)
 
         val request = MyRequestArray(
             this@MedicalRecord,

@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.afinal.*
+import com.example.afinal.Adapter.ConnectionAdapter
 import com.example.afinal.Adapter.SignalsAdapter
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
@@ -22,8 +24,10 @@ import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.Models.SignalData
 import com.example.afinal.UI.Login
 import com.example.afinal.UI.MyProfile
+import com.example.finalseizures.MyRequest
 import com.example.finalseizures.MyRequestArray
 import kotlinx.android.synthetic.main.activity_seizure_history.*
+import org.json.JSONObject
 
 class SeizureHistory : AppCompatActivity() {
 
@@ -56,7 +60,7 @@ class SeizureHistory : AppCompatActivity() {
 
                     for (i in 0 until response.length()) {
 
-                        //textConnection.visibility = View.GONE
+                        textConnection4.visibility = View.GONE
 
                         val test = response.getJSONObject(i)
 
@@ -78,7 +82,17 @@ class SeizureHistory : AppCompatActivity() {
                         var SignalsAdapter = SignalsAdapter(list)
 
                         rv_history_signal.adapter = SignalsAdapter
+                        SignalsAdapter.setonItemClickListener(object: SignalsAdapter.onItemClickListener{
 
+                            override fun btn_deleteSignal(position: Int) {
+                                sendID2(response.getJSONObject(position).getInt("id"))
+                                val intent =Intent(this@SeizureHistory,
+                                    SeizureHistory::class.java)
+                                startActivity(intent)
+
+                            }
+
+                        })
 
                     }
                 }
@@ -94,6 +108,43 @@ class SeizureHistory : AppCompatActivity() {
 
         queue.add(request)
 }
+
+    private fun sendID2(ID: Int){
+
+        val params = JSONObject()
+
+        params.put("id",ID)
+
+        val queue = Volley.newRequestQueue(this)
+        val request = MyRequest(
+            this,
+            Request.Method.POST,
+            "/deleteSignal",
+            params,
+            { response ->
+
+                Log.d("mytag", "response = $response")
+
+
+
+                // if there is an error (wrong email or password)
+                if (response.has("error")) {
+                    val errorMesssage = response.getString("error")
+                    Toast.makeText(this, errorMesssage, Toast.LENGTH_SHORT).show()
+
+                }
+            },
+            { error ->
+                Log.e(
+                    "mytag",
+                    "Error: $error - Status Code = ${error.networkResponse?.statusCode}"
+                )
+                Toast.makeText(this, "Connection error", Toast.LENGTH_SHORT).show()
+            }
+        )
+        queue.add(request)
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
