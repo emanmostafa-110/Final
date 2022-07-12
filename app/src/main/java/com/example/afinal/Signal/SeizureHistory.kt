@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.afinal.*
+import com.example.afinal.Adapter.SignalsAdapter
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
 import com.example.afinal.Alarm.Alarm
@@ -74,7 +75,7 @@ class SeizureHistory : AppCompatActivity() {
                             RecyclerView.VERTICAL, false
                         )
 
-                        var SignalsAdapter = SignalAdapter(list)
+                        var SignalsAdapter = SignalsAdapter(list)
 
                         rv_history_signal.adapter = SignalsAdapter
 

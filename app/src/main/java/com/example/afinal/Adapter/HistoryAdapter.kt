@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.afinal.Models.DoctorData
 import com.example.afinal.R
 import kotlinx.android.synthetic.main.list_connection_request.view.*
+import kotlinx.android.synthetic.main.list_historyt_of_connection.view.*
 
-class HistoryAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adapter<HistoryAdapter.ViewHolder>()  {
+class HistoryAdapter (var myList : ArrayList<DoctorData>) :
+    RecyclerView.Adapter<HistoryAdapter.ViewHolder>()  {
 
     private lateinit var mListener : onItemClickListener
 
@@ -23,16 +25,16 @@ class HistoryAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adapter
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val v = LayoutInflater.from(parent.context).inflate(
             R.layout.list_historyt_of_connection,
             parent,false)
 
-        return HistoryAdapter.ViewHolder(v, mListener)
+        return ViewHolder(v, mListener)
     }
 
-    override fun onBindViewHolder(holder: HistoryAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var services = myList[position]
 
         holder.doctorName.text = services.doctorName
@@ -44,11 +46,12 @@ class HistoryAdapter (var myList : ArrayList<DoctorData>) : RecyclerView.Adapter
     override fun getItemCount(): Int {
         return myList.size
     }
-    class ViewHolder (itemView : View, listener : HistoryAdapter.onItemClickListener) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder (itemView : View, listener : onItemClickListener) :
+        RecyclerView.ViewHolder(itemView) {
 
-        val doctorName = itemView.DoctorName
-        val doctorAddress = itemView.DoctorAddress
-        val doctorPhone = itemView.DoctorPhone
+        val doctorName = itemView.DoctorName2
+        val doctorAddress = itemView.DoctorAddress2
+        val doctorPhone = itemView.DoctorPhone2
 
         init {
 

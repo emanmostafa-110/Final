@@ -13,14 +13,12 @@ import com.example.afinal.*
 import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
-
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.Signal.SeizureHistory
 import com.example.finalseizures.MyRequest
 import kotlinx.android.synthetic.main.activity_edit_profile.*
-
 import org.json.JSONObject
 
 class EditProfile : AppCompatActivity() {
@@ -95,16 +93,16 @@ class EditProfile : AppCompatActivity() {
 
                 val profile = response.getJSONObject("data")
 
-               /* etFirstName.text = profile.getString("firstName")
-                etLastName.text = profile.getString("lastName")
-                etEmail.text = profile.getString("email")
-                etCity.text =profile.getString("city")
-                etCountry.text = profile.getString("country")
-                etPhone.text = profile.getString("phone")
-                etNationalID.text=profile.getString("national_id")
-                etGender.text = profile.getString("gender")
-                etBOD.text=profile.getString("birth_day")
-*/
+                textView1.text = profile.getString("firstName")
+                textView2.text = profile.getString("lastName")
+                textView3.text = profile.getString("email")
+                textView4.text =profile.getString("city")
+                textView5.text = profile.getString("country")
+                textView6.text = profile.getString("phone")
+                textView7.text=profile.getString("national_id")
+                textView8.text = profile.getString("gender")
+                textView9.text=profile.getString("birth_day")
+
                 // if there is an error (wrong email or password)
                 if (response.has("error")) {
                     val errorMesssage = response.getString("error")
