@@ -74,7 +74,7 @@ class SeizureHistory : AppCompatActivity() {
                             RecyclerView.VERTICAL, false
                         )
 
-                        var SignalsAdapter = SignalAdapter(list)
+                        var SignalsAdapter = SignalsAdapter(list)
 
                         rv_history_signal.adapter = SignalsAdapter
 
