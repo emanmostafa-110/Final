@@ -20,6 +20,7 @@ import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.Signal.SeizureHistory
 import com.example.finalseizures.MyRequest
 import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.activity_registration.*
 
 import org.json.JSONObject
 
@@ -29,58 +30,54 @@ class EditProfile : AppCompatActivity() {
         setContentView(R.layout.activity_edit_profile)
 
         update.setOnClickListener {
+            val params = JSONObject()
+
+            params.put("firstName",  etFirstName.text.toString())
+            params.put("lastName", etLastName.text.toString())
+            params.put("email",   etEmail.text.toString())
+            params.put("phone", etPhone.text.toString())
+            params.put("gender",  etGender.text.toString())
+            params.put("birth_day", etBOD.text.toString())
+            params.put("national_id",etNationalID.text.toString())
+            params.put("city", et_city.text.toString())
+            params.put("country", etCountry.text.toString())
 
 
+            Log.d("mytag", "Button clicked")
 
-                // data we send in the request: Email and password
-                val params = JSONObject()
+            // send request
+            val queue = Volley.newRequestQueue(this)
+            val request = MyRequest(
+                this,
+                Request.Method.POST,
+                "/profileUpdate",
+                params,
+                { response ->
 
-                params.put("firstName",  etFirstName.text.toString())
-                params.put("lastName", etLastName.text.toString())
-                params.put("email",   etEmail.text.toString())
-                params.put("phone", etPhone.text.toString())
-                params.put("gender",  etGender.text.toString())
-                params.put("birth_day", etBOD.text.toString())
-                params.put("national_id",etNationalID.text.toString())
-                params.put("city", etCity.text.toString())
-                params.put("country", etCountry.text.toString())
+                    Log.d("mytag", "response = $response")
 
-
-                Log.d("mytag", "Button clicked")
-
-                // send request
-                val queue = Volley.newRequestQueue(this)
-                val request = MyRequest(
-                    this,
-                    Request.Method.POST,
-                    "/profileUpdate",
-                    params,
-                    { response ->
-
-                        Log.d("mytag", "response = $response")
-
-                        // goto Login activity
-                        val intent = Intent(this@EditProfile, MyProfile::class.java)
-                        startActivity(intent)
+                    // goto Login activity
+                    val intent = Intent(this, MyProfile::class.java)
+                    startActivity(intent)
 
 
-                        // if there is an error (wrong email or password)
-                        if (response.has("error")) {
-                            val errorMesssage = response.getString("error")
-                            Toast.makeText(this, errorMesssage, Toast.LENGTH_SHORT).show()
+                    // if there is an error (wrong email or password)
+                    if (response.has("error")) {
+                        val errorMesssage = response.getString("error")
+                        Toast.makeText(this, errorMesssage, Toast.LENGTH_SHORT).show()
 
-                        }
-                    },
-                    { error ->
-                        Log.e(
-                            "mytag",
-                            "Error: $error - Status Code = ${error.networkResponse?.statusCode}"
-                        )
-                        Toast.makeText(this, "Connection error", Toast.LENGTH_SHORT).show()
                     }
-                )
-                queue.add(request)
-            }
+                },
+                { error ->
+                    Log.e(
+                        "mytag",
+                        "Error: $error - Status Code = ${error.networkResponse?.statusCode}"
+                    )
+                    Toast.makeText(this, "Connection error", Toast.LENGTH_SHORT).show()
+                }
+            )
+            queue.add(request)
+        }
 
         // send request
         val queue = Volley.newRequestQueue(this)
@@ -95,16 +92,16 @@ class EditProfile : AppCompatActivity() {
 
                 val profile = response.getJSONObject("data")
 
-               /* etFirstName.text = profile.getString("firstName")
-                etLastName.text = profile.getString("lastName")
-                etEmail.text = profile.getString("email")
-                etCity.text =profile.getString("city")
-                etCountry.text = profile.getString("country")
-                etPhone.text = profile.getString("phone")
-                etNationalID.text=profile.getString("national_id")
-                etGender.text = profile.getString("gender")
-                etBOD.text=profile.getString("birth_day")
-*/
+                textView1.text = profile.getString("firstName")
+                textView2.text = profile.getString("lastName")
+                textView3.text = profile.getString("email")
+                textView4.text =profile.getString("city")
+                textView5.text = profile.getString("country")
+                textView6.text = profile.getString("phone")
+                textView7.text=profile.getString(" gender")
+                textView8.text = profile.getString("national_id")
+                textView9.text=profile.getString("birth_day")
+
                 // if there is an error (wrong email or password)
                 if (response.has("error")) {
                     val errorMesssage = response.getString("error")
@@ -121,7 +118,6 @@ class EditProfile : AppCompatActivity() {
             }
         )
         queue.add(request)
-
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

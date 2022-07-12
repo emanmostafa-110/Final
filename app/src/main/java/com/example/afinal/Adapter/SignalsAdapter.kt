@@ -16,7 +16,7 @@ class SignalsAdapter (var myList : ArrayList<SignalData>) : RecyclerView.Adapter
 
     interface onItemClickListener {
 
-        fun accept_action(position: Int)
+        fun btn_deleteSignal(position: Int)
 
     }
 
@@ -24,15 +24,15 @@ class SignalsAdapter (var myList : ArrayList<SignalData>) : RecyclerView.Adapter
         mListener = listener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SignalsAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(
             R.layout.seizure_history_recycler,
             parent,false)
 
-        return SignalsAdapter.ViewHolder(v, mListener)
+        return ViewHolder(v, mListener)
     }
 
-    override fun onBindViewHolder(holder: SignalsAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var services = myList[position]
 
         holder.type.text = services.type_of_signalBase
@@ -44,7 +44,7 @@ class SignalsAdapter (var myList : ArrayList<SignalData>) : RecyclerView.Adapter
     override fun getItemCount(): Int {
         return myList.size
     }
-    class ViewHolder (itemView : View, listener : SignalsAdapter.onItemClickListener) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder (itemView : View, listener : onItemClickListener) : RecyclerView.ViewHolder(itemView) {
 
         val type = itemView.typeOfSignal
         val classification = itemView.classification
@@ -53,8 +53,8 @@ class SignalsAdapter (var myList : ArrayList<SignalData>) : RecyclerView.Adapter
 
         init {
 
-            itemView.btnAccept.setOnClickListener {
-                listener.accept_action(adapterPosition)
+            itemView.btn_delete.setOnClickListener {
+                listener.btn_deleteSignal(adapterPosition)
             }
 
         }

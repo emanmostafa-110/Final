@@ -1,6 +1,7 @@
 package com.example.afinal.Connection
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -78,10 +79,13 @@ class ConnectionRequest : AppCompatActivity() {
                             override fun accept_action(position: Int) {
 
                                 sendID(response.getJSONObject(position).getInt("id"))
-
+                                val intent = Intent(this@ConnectionRequest,
+                                    ConnectionRequest::class.java)
+                                startActivity(intent)
                             }
                         })
                     }
+
                 }
                 Log.d("mytag", "$list")
 

@@ -35,11 +35,11 @@ class HistoryConnection : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history_connection)
-        initRecyclerView()
+        initRecyclerView2()
 
     }
 
-    private fun initRecyclerView() {
+    private fun initRecyclerView2() {
 
         var list = ArrayList<DoctorData>()
 
@@ -61,7 +61,7 @@ class HistoryConnection : AppCompatActivity() {
 
                     for (i in 0 until response.length()) {
 
-                        //textConnection.visibility = View.GONE
+                        textConnection2.visibility = View.GONE
 
                         val test = response.getJSONObject(i)
 
@@ -69,8 +69,8 @@ class HistoryConnection : AppCompatActivity() {
                         list.add(
                             DoctorData(
                                 "Name: ${test.getString("name")}",
-                                test.getString("address"),
-                                test.getString("phone")
+                                "Address: ${test.getString("address")}",
+                                "phone: ${test.getString("phone")}"
                             )
                         )
 
@@ -83,14 +83,15 @@ class HistoryConnection : AppCompatActivity() {
 
                         rv_list_history.adapter = HistoryAdapter
 
-                       /* HistoryAdapter.setonItemClickListener(object: HistoryAdapter.onItemClickListener{
+                        HistoryAdapter.setonItemClickListener(object: HistoryAdapter.onItemClickListener{
 
-                            override fun accept_action(position: Int) {
+                            override fun delete_action(position: Int) {
 
-                                sendID(response.getJSONObject(position).getInt("id"))
-
+                            Toast.makeText(this@HistoryConnection
+                                ,"OKKKK",
+                                Toast.LENGTH_LONG).show()
                             }
-                        })*/
+                        })
                     }
                 }
                 Log.d("mytag", "$list")
