@@ -8,6 +8,7 @@
     tools:context=".Alarm.AlarmOnActive"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/white"
     >
 
     <TextView

@@ -18,6 +18,7 @@ import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.Signal.SeizureHistory
 import com.example.afinal.UI.Login
+import com.example.afinal.UI.MainActivity
 import com.example.afinal.UI.MyProfile
 import kotlinx.android.synthetic.main.activity_alarm.*
 
@@ -33,7 +34,8 @@ class Alarm : AppCompatActivity() {
             var am :AlarmManager =getSystemService(Context.ALARM_SERVICE) as AlarmManager
             am.set(AlarmManager.RTC_WAKEUP,System.currentTimeMillis()+(sec*1000),pi)
             Toast.makeText(applicationContext,"Alarm set for $sec Seconds",Toast.LENGTH_SHORT).show()
-
+            val intent2 =Intent(this@Alarm, MainActivity::class.java)
+            startActivity(intent2)
 
         }
 

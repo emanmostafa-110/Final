@@ -30,8 +30,6 @@ class EditProfile : AppCompatActivity() {
 
         update.setOnClickListener {
 
-
-
                 // data we send in the request: Email and password
                 val params = JSONObject()
 
@@ -95,16 +93,16 @@ class EditProfile : AppCompatActivity() {
 
                 val profile = response.getJSONObject("data")
 
-               /* etFirstName.text = profile.getString("firstName")
-                etLastName.text = profile.getString("lastName")
-                etEmail.text = profile.getString("email")
-                etCity.text =profile.getString("city")
-                etCountry.text = profile.getString("country")
-                etPhone.text = profile.getString("phone")
-                etNationalID.text=profile.getString("national_id")
-                etGender.text = profile.getString("gender")
-                etBOD.text=profile.getString("birth_day")
-*/
+                textView1.text = profile.getString("firstName")
+                textView2.text = profile.getString("lastName")
+                textView3.text = profile.getString("email")
+                textView4.text =profile.getString("city")
+                textView5.text = profile.getString("country")
+                textView6.text = profile.getString("phone")
+                textView8.text=profile.getString("national_id")
+                textView7.text = profile.getString("gender")
+                textView9.text=profile.getString("birth_day")
+
                 // if there is an error (wrong email or password)
                 if (response.has("error")) {
                     val errorMesssage = response.getString("error")

@@ -8,6 +8,7 @@
     tools:context=".Alarm.Alarm"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/white"
     >
 
     <TextView
@@ -28,6 +29,7 @@
         android:layout_height="wrap_content"
         android:hint="Enter Second"
         android:inputType="number"
+        android:textColorHint="#AE000000"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:textColor="@color/text"

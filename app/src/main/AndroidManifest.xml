@@ -19,6 +19,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".EEGResult"
+            android:exported="false" />
+        <activity
+            android:name=".EMGResult"
+            android:exported="false" />
+        <activity
             android:name=".Alarm.AlarmOnActive"
             android:exported="false" />
         <activity
