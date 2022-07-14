@@ -16,6 +16,7 @@
             android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:layout_margin="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +27,7 @@
             android:id="@+id/et_fname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="28dp"
             android:background="@drawable/editshape"
             android:hint="@string/first_name"
@@ -35,7 +36,7 @@
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/et_phone"
+            app:layout_constraintStart_toStartOf="@id/et_gender"
             app:layout_constraintTop_toBottomOf="@id/logo" />
 
         <EditText
@@ -62,7 +63,8 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/editshape"
             android:hint="@string/email"
-            android:minHeight="48dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"            android:minHeight="48dp"
             android:padding="10dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
@@ -77,6 +79,8 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/editshape"
             android:hint="@string/password"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:padding="10dp"
@@ -95,7 +99,8 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/editshape"
             android:hint="@string/phone_number"
-            android:inputType="number"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"            android:inputType="number"
             android:minHeight="48dp"
             android:padding="10dp"
             android:textColor="@color/text"
@@ -106,13 +111,12 @@
 
         <EditText
             android:id="@+id/et_country"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/editshape"
             android:hint="@string/country"
-
             android:minHeight="48dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
@@ -122,13 +126,14 @@
 
         <EditText
             android:id="@+id/et_city"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/editshape"
             android:hint="@string/city"
             android:minHeight="48dp"
+            android:layout_marginEnd="20dp"
             android:paddingTop="10dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
@@ -144,7 +149,8 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/editshape"
             android:hint="@string/national_id"
-            android:inputType="number"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"            android:inputType="number"
             android:minHeight="48dp"
             android:padding="10dp"
             android:textColor="@color/text"
@@ -152,41 +158,37 @@
             android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@id/et_city"
             tools:layout_editor_absoluteX="10dp" />
-        <TextView
+        <EditText
             android:id="@+id/et_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="20dp"
-            android:text="@string/gender"
+            android:hint="@string/enter_male_or_female"
             android:padding="10dp"
             android:textColor="@color/text"
             android:textColorHint="#AE000000"
             android:textSize="18sp"
+            android:background="@drawable/editshape"
             app:layout_constraintTop_toBottomOf="@id/et_nationalID"
             tools:ignore="LabelFor" />
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/et_gender"
-        app:layout_constraintStart_toStartOf="@id/et_gender"
-        />
+
 
         <EditText
             android:id="@+id/et_birthdate"
             android:layout_width="match_parent"
             android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:background="@drawable/editshape"
             android:autofillHints="Date"
+            android:textColorHint="#AE000000"
             android:hint="@string/Date"
             android:inputType="date"
             android:padding="10dp"
             android:textColor="@color/text"
-            android:layout_marginStart="10dp"
             android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@id/et_gender"
             />

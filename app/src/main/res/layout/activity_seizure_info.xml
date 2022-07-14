@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Information about epilepsy"
+            android:text="Information about Seizure"
             android:textColor="#8946A6"
             android:textSize="20sp" />
 
@@ -28,9 +28,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
-            android:text="Epilepsy"
+            android:layout_marginRight="10dp"
+            android:text="Seizure"
             android:textColor="#B762c1"
             android:textSize="20sp" />
 
@@ -39,36 +39,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ques1"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:text="Epilepsy is one of the diseases that affect the brain, and it is not classified among the list of mental illnesses or mental illnesses, but epilepsy is caused by imbalances or disorders that occur in the brain, which leads to the appearance of convulsions on the patient, and it is worth mentioning that epilepsy is a chronic disease, but it is not It is contagious, and it may accompany some brain diseases or a group of other diseases"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Seizure is one of the diseases that affect the brain, and it is not classified among the list of mental illnesses or mental illnesses, but epilepsy is caused by imbalances or disorders that occur in the brain, which leads to the appearance of convulsions on the patient, and it is worth mentioning that epilepsy is a chronic disease, but it is not It is contagious, and it may accompany some brain diseases or a group of other diseases"
             android:textColor="#9f000000"
             android:textSize="18sp" />
+
         <TextView
             android:id="@+id/ques2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ans1"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:text="Symptoms of epilepsy"
+            android:layout_marginRight="10dp"
+            android:text="Symptoms of Seizure"
             android:textColor="#B762c1"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/ans2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ques2"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:text="Convulsions are the main symptoms of epilepsy, but these convulsions and the accompanying symptoms vary according to their type:-) Partial seizures, also known as focal epilepsy, and represented by two basic types, namely:- A) Simple partial epilepsy:- This type of epilepsy is not accompanied by loss of consciousness, Among the symptoms that appear on people with simple partial epilepsy are dizziness, a feeling of tingling in the extremities, and suffering from a change in the sense of taste, smell, sight, hearing, and touch.
-b) Compound reflux epilepsy:- It causes the patient to lose consciousness, lose the ability to respond, and repeat some movements.
+b) Compound reflux Seizure:- It causes the patient to lose consciousness, lose the ability to respond, and repeat some movements.
 2) Total seizures: These seizures include the entire brain, and they have six types: epileptic seizure accompanied by coma, tonic epileptic fits, tonic-clonic seizures, myoclonic seizures, and tonic-clonic seizures."
             android:textColor="#9f000000"
             android:textSize="18dp" />
@@ -79,7 +79,7 @@ b) Compound reflux epilepsy:- It causes the patient to lose consciousness, lose 
             android:id="@+id/ques3"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
-            android:text="Causes of epilepsy"
+            android:text="Causes of Seizure"
             android:textColor="#B762c1"
             android:textSize="20sp"
             />
@@ -93,7 +93,7 @@ b) Compound reflux epilepsy:- It causes the patient to lose consciousness, lose 
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:text="In fact, there is no specific cause of epilepsy, but it is worth noting that the nature of the symptoms and signs that appear on the sufferers during a seizure depend on the affected part of the brain and the speed and extent of transmission of convulsions in the brain, and in fact there are some sufferers whose genetic factors play a role in the emergence of They have disease, and other factors that increase the chance of developing epilepsy are as follows: - Exposure to a blow, for example during accidents. Suffering from some health problems that affect the brain, such as tumors and stroke, as stroke is a major cause of epilepsy in people over the age of 35 years, and a lack of oxygen to the brain. Having some infectious diseases such as AIDS and exposure to a wound or damage to the brain before birth and age; The risk of developing epilepsy is higher for people under the age of two years, and those over the age of 65 years"
+            android:text="In fact, there is no specific cause of Seizure, but it is worth noting that the nature of the symptoms and signs that appear on the sufferers during a seizure depend on the affected part of the brain and the speed and extent of transmission of convulsions in the brain, and in fact there are some sufferers whose genetic factors play a role in the emergence of They have disease, and other factors that increase the chance of developing epilepsy are as follows: - Exposure to a blow, for example during accidents. Suffering from some health problems that affect the brain, such as tumors and stroke, as stroke is a major cause of epilepsy in people over the age of 35 years, and a lack of oxygen to the brain. Having some infectious diseases such as AIDS and exposure to a wound or damage to the brain before birth and age; The risk of developing epilepsy is higher for people under the age of two years, and those over the age of 65 years"
             android:textColor="#9f000000"
             android:textSize="18sp" />
         <TextView
@@ -102,7 +102,7 @@ b) Compound reflux epilepsy:- It causes the patient to lose consciousness, lose 
             android:layout_below="@+id/ans3"
             android:id="@+id/ques4"
             android:layout_marginTop="20dp" android:layout_marginRight="10dp"
-            android:text="Methods for diagnosing epilepsy"
+            android:text="Methods for diagnosing Seizure"
             android:textColor="#B762c1"
             android:textSize="20sp"
             />

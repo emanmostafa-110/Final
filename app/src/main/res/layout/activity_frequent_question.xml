@@ -60,38 +60,12 @@
             style="@style/TextViewAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-        <TextView
-            android:text="@string/howToUpload"
-            style="@style/TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <ImageView
-            android:src="@drawable/uplodemri"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"/>
-        <TextView
-            android:text="@string/uploadMRI"
-            style="@style/TextViewAnswer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <ImageView
-            android:src="@drawable/mri"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"/>
-        <TextView
-            android:text="@string/uploadImage"
-            style="@style/TextViewAnswer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+
         <ImageView
             android:src="@drawable/eeg"
             android:layout_width="match_parent"
             android:layout_height="80dp"/>
-        <TextView
-            android:text="@string/saveMRI"
-            style="@style/TextViewAnswer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+
         <TextView
             android:text="@string/howToRecor"
             style="@style/TextView"

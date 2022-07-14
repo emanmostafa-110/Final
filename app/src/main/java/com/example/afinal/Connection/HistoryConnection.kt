@@ -64,7 +64,7 @@ class HistoryConnection : AppCompatActivity() {
 
                     for (i in 0 until response.length()) {
 
-                        //textConnection.visibility = View.GONE
+                        textConnection2.visibility = View.GONE
 
                         val test = response.getJSONObject(i)
 

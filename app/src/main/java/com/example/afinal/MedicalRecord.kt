@@ -66,7 +66,7 @@ class MedicalRecord : AppCompatActivity() {
                 val profile = response.getJSONObject("data")
 
                 et_name.text = "${profile.getString("firstName")} ${profile.getString("lastName")}"
-                et_birthdate.text = profile.getString("birth_day")
+                //et_birthdate.text = profile.getString("birth_day")
                 et_gender.text = profile.getString("gender")
 
                 // if there is an error (wrong email or password)

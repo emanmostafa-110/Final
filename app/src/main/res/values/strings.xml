@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Final</string>
+    <string name="app_name">Fighters</string>
 
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -142,4 +142,5 @@
     <string name="change_time">Change Time</string>
     <string name="create_at">Create At</string>
     <string name="done">Done</string>
+    <string name="enter_male_or_female">Enter Male or Female</string>
 </resources>

@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="there isn't Connection History"
+                android:text="There isn't Connection History"
                 style="@style/TextView"
                 android:layout_marginTop="10dp"
                 android:textSize="30sp"

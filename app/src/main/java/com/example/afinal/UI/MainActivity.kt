@@ -15,8 +15,8 @@ import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
 import com.example.afinal.Signal.RecordEMG
 import com.example.afinal.Signal.SeizureHistory
-import com.example.afinal.Signal.UploadEEG
-import com.example.afinal.Signal.UploadEMG
+import com.example.afinal.Signal.UploadEeg
+import com.example.afinal.Signal.UploadEmg
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,12 +33,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_uploadEEG.setOnClickListener{
-            val intent = Intent(this@MainActivity, UploadEEG::class.java)
+            val intent = Intent(this@MainActivity, UploadEeg::class.java)
             startActivity(intent)
         }
 
         btn_uploadEMG.setOnClickListener{
-            val intent = Intent(this@MainActivity, UploadEMG::class.java)
+            val intent = Intent(this@MainActivity, UploadEmg::class.java)
             startActivity(intent)
         }
     }

@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Nutritional advice for epilepsy patients"
+            android:text="Nutritional advice for Seizure patients"
             android:textSize="20sp"
             android:textColor="#8946A6" />
         <TextView

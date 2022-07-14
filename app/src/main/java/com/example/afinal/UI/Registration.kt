@@ -2,18 +2,20 @@ package com.example.afinal.UI
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.Volley
 import com.example.afinal.R
 import com.example.finalseizures.MyRequest
 import kotlinx.android.synthetic.main.activity_registration.*
-import kotlinx.android.synthetic.main.activity_registration.et_email
 import org.json.JSONObject
+import java.util.*
 
 class Registration : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.S)
@@ -23,8 +25,7 @@ class Registration : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
-       // val arrayAdapter =ArrayAdapter<String>(this,)
-
+        BuildDate()
 
         btn_registration.setOnClickListener {
 
@@ -151,5 +152,61 @@ class Registration : AppCompatActivity() {
             return false
 
         }
+    }
+
+
+    private fun BuildDate() {
+        et_birthdate.addTextChangedListener(object : TextWatcher {
+            private var current = ""
+            private val ddmmyyyy = "DDMMYYYY"
+            private val cal = Calendar.getInstance()
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (s.toString() != current) {
+                    var clean = s.toString().replace("[^\\d.]".toRegex(), "")
+                    val cleanC = current.replace("[^\\d.]".toRegex(), "")
+                    val cl = clean.length
+                    var sel = cl
+                    var i = 2
+                    while (i <= cl && i < 6) {
+                        sel++
+                        i += 2
+                    }
+                    //Fix for pressing delete next to a forward slash
+                    if (clean == cleanC) sel--
+                    if (clean.length < 8) {
+                        clean = clean + ddmmyyyy.substring(clean.length)
+                    } else {
+                        //This part makes sure that when we finish entering numbers
+                        //the date is correct, fixing it otherwise
+                        var day = clean.substring(0, 2).toInt()
+                        var mon = clean.substring(2, 4).toInt()
+                        var year = clean.substring(4, 8).toInt()
+                        if (mon > 12) mon = 12
+                        cal[Calendar.MONTH] = mon - 1
+                        year = if (year < 1900) 1900 else if (year > 2100) 2100 else year
+                        cal[Calendar.YEAR] = year
+                        // ^ first set year for the line below to work correctly
+                        //with leap years - otherwise, date e.g. 29/02/2012
+                        //would be automatically corrected to 28/02/2012
+                        day = if (day > cal.getActualMaximum(Calendar.DATE)) cal.getActualMaximum(
+                            Calendar.DATE
+                        ) else day
+                        clean = String.format("%02d%02d%02d", day, mon, year)
+                    }
+                    clean = String.format(
+                        "%s/%s/%s", clean.substring(0, 2),
+                        clean.substring(2, 4),
+                        clean.substring(4, 8)
+                    )
+                    sel = if (sel < 0) 0 else sel
+                    current = clean
+                    et_birthdate.setText(current)
+                    et_birthdate.setSelection(if (sel < current.length) sel else current.length)
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable) {}
+        })
     }
 }
