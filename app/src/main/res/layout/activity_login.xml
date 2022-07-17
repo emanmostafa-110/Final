@@ -101,7 +101,6 @@
         app:layout_constraintStart_toStartOf="@id/btn_login"
         app:layout_constraintEnd_toEndOf="@id/btn_login"
         android:layout_marginTop="10dp"
-
         android:text="@string/don_t_have_account"
         android:textColor="#000"
         />

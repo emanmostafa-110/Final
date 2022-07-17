@@ -6,17 +6,18 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Signal.EMGResult">
+    tools:context=".EMGResult">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:text="EMG Classification"
+        android:layout_marginTop="25dp"
+        android:text="@string/emg_classification"
         android:textColor="@color/text"
         android:textSize="25sp"
         android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,18 +28,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Classification"
+            android:text="@string/classification"
             android:textColor="@color/text"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/classificationEEG"
+            android:id="@+id/classificationEMG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Non Seizure"
-            android:textColor="@color/text"
+            android:enabled="false"
             android:textSize="18sp" />
 
     </LinearLayout>
@@ -53,18 +53,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="probability of seizure"
+            android:text="@string/probability_of_seizure"
             android:textColor="@color/text"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/probabilitySeizureEEG"
+        <EditText
+            android:id="@+id/probabilitySeizureEMG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="21.84190392494"
-            android:textColor="@color/text"
+            android:enabled="false"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -78,29 +77,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="probability of non seizure"
+            android:text="@string/probability_of_non_seizure"
             android:textColor="@color/text"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/probabilityNonEEG"
+        <EditText
+            android:id="@+id/probabilityNonEMG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="78.1580960750"
-            android:textColor="@color/text"
+            android:enabled="false"
             android:textSize="18sp" />
 
     </LinearLayout>
 
 
     <Button
-        android:id="@+id/saveEEG"
+        android:id="@+id/saveEMG"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="Save EMG"
+        android:text="@string/save"
         android:textStyle="bold"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@color/white"
@@ -108,7 +106,6 @@
         android:textSize="20sp"
         android:gravity="center"
         android:background="@drawable/btnshape"/>
-
 
 
 

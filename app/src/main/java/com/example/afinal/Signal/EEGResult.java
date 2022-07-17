@@ -9,7 +9,6 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.afinal.Alarm.Alarm;
 import com.example.afinal.Connection.ConnectionRequest;
 import com.example.afinal.Connection.HistoryConnection;
 import com.example.afinal.Information.Diet;
@@ -73,10 +72,7 @@ public class EEGResult extends AppCompatActivity {
                 startActivity(intent6);
                 return true;
 
-            case R.id.alarm:
-                Intent intent7 =new Intent(EEGResult.this , Alarm.class);
-                startActivity(intent7);
-                return true;
+
             case R.id.question:
                 Intent intent10 =new Intent(EEGResult.this , FrequentQuestion.class);
                 startActivity(intent10);

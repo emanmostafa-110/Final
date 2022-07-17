@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Signal.UploadEeg"
+    tools:context=".UploadEeg"
     android:padding="20dp"
     android:orientation="vertical"
     android:background="@color/white"
@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EEG signal upload"
+        android:text="@string/eeg_signal_upload"
         android:layout_gravity="center"
         android:textColor="@color/text"
         android:textSize="25sp"
@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Upload signal"
+        android:text="@string/upload_signal"
         android:layout_marginTop="20dp"
         android:textColor="@color/text"
         android:layout_marginStart="20dp"
@@ -49,7 +49,7 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:text="upload signal"
+        android:text="@string/upload_signal"
         android:textStyle="bold"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@color/white"
@@ -57,6 +57,47 @@
         android:layout_gravity="center"
         android:textSize="20sp"
         android:background="@drawable/btnshape"/>
+
+
+    <Button
+        android:id="@+id/classify"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="@string/classify"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:background="@drawable/btnshape"/>
+
+    <Button
+        android:id="@+id/ShowResult"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="@string/showResult"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:background="@drawable/btnshape"/>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:outlineAmbientShadowColor="@color/purple_500"
+        android:outlineSpotShadowColor="@color/purple_500"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_margin="100dp"
+        />
 
 
 

@@ -13,10 +13,7 @@ import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
-import com.example.afinal.Signal.RecordEMG
-import com.example.afinal.Signal.SeizureHistory
-import com.example.afinal.Signal.UploadEeg
-import com.example.afinal.Signal.UploadEmg
+import com.example.afinal.Signal.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,20 +22,16 @@ class MainActivity : AppCompatActivity() {
 
         val btn_uploadEEG= findViewById<Button>(R.id.uploadEeg)
         val btn_uploadEMG= findViewById<Button>(R.id.uploadEmg)
-        val btn_recordEMG= findViewById<Button>(R.id.recordEmg)
 
-        btn_recordEMG.setOnClickListener{
-            val intent = Intent(this@MainActivity, RecordEMG::class.java)
-            startActivity(intent)
-        }
+
 
         btn_uploadEEG.setOnClickListener{
-            val intent = Intent(this@MainActivity, UploadEeg::class.java)
+            val intent = Intent(this@MainActivity, UploadEEG::class.java)
             startActivity(intent)
         }
 
         btn_uploadEMG.setOnClickListener{
-            val intent = Intent(this@MainActivity, UploadEmg::class.java)
+            val intent = Intent(this@MainActivity, UploadEMG::class.java)
             startActivity(intent)
         }
     }

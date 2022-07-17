@@ -143,4 +143,7 @@
     <string name="create_at">Create At</string>
     <string name="done">Done</string>
     <string name="enter_male_or_female">Enter Male or Female</string>
+    <string name="showResult">Show Result</string>
+    <string name="classify">Classify Signal</string>
+    <string name="emg_classification">EMG Classification</string>
 </resources>

@@ -17,7 +17,6 @@ import com.example.afinal.Adapter.ConnectionAdapter
 import com.example.afinal.Adapter.SignalsAdapter
 import com.example.afinal.Connection.ConnectionRequest
 import com.example.afinal.Connection.HistoryConnection
-import com.example.afinal.Alarm.Alarm
 import com.example.afinal.Information.Diet
 import com.example.afinal.Information.FrequentQuestion
 import com.example.afinal.Information.SeizureInfo
@@ -184,11 +183,7 @@ class SeizureHistory : AppCompatActivity() {
                 startActivity(intent)
                 return true
             }
-            R.id.alarm ->{
-                val intent = Intent(this@SeizureHistory, Alarm::class.java)
-                startActivity(intent)
-                return true
-            }
+
             R.id.diet ->{
                 val intent = Intent(this@SeizureHistory, Diet::class.java)
                 startActivity(intent)

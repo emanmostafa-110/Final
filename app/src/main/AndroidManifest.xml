@@ -19,12 +19,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Signal.EEGResult"
-            android:exported="false" />
-        <activity
-            android:name=".Signal.EMGResult"
-            android:exported="false" />
-        <activity
             android:name=".Alarm.AlarmOnActive"
             android:exported="false" />
         <activity
@@ -59,12 +53,6 @@
             android:exported="false" />
         <activity
             android:name=".UI.SuccessfulSend"
-            android:exported="false" />
-        <activity
-            android:name=".Signal.UploadEmg"
-            android:exported="false" />
-        <activity
-            android:name=".Signal.UploadEeg"
             android:exported="false" />
         <activity
             android:name=".Signal.RecordEMG"

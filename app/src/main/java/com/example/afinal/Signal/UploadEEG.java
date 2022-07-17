@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.afinal.Alarm.Alarm;
 import com.example.afinal.Connection.ConnectionRequest;
 import com.example.afinal.Connection.HistoryConnection;
 import com.example.afinal.Information.Diet;
@@ -31,7 +30,7 @@ import com.example.afinal.UI.Login;
 import com.example.afinal.UI.MyProfile;
 
 
-public class UploadEeg extends AppCompatActivity {
+public class UploadEEG extends AppCompatActivity {
 
     Button upload;
     String path;
@@ -46,7 +45,7 @@ public class UploadEeg extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 uploadImage();
-                startActivity(new Intent(UploadEeg.this, EEGResult.class));
+                startActivity(new Intent(UploadEEG.this, EEGResult.class));
             }
         });
     }
@@ -60,10 +59,10 @@ public class UploadEeg extends AppCompatActivity {
             intent.setAction(Intent.ACTION_GET_CONTENT);
             startActivityForResult(intent, 10);
         } else {
-            ActivityCompat.requestPermissions(UploadEeg.this,
+            ActivityCompat.requestPermissions(UploadEEG.this,
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }
-        Intent intent1  =new Intent(UploadEeg.this, EEGResult.class);
+        Intent intent1  =new Intent(UploadEEG.this, EEGResult.class);
         startActivity(intent1);
 
     }
@@ -74,7 +73,7 @@ public class UploadEeg extends AppCompatActivity {
 
         if (requestCode == 10 && resultCode == Activity.RESULT_OK) {
             Uri uri = data.getData();
-            Context context = UploadEeg.this;
+            Context context = UploadEEG.this;
             path = RealPathUtil.getRealPath(context, uri);
             Bitmap bitmap = BitmapFactory.decodeFile(path);
         }
@@ -92,48 +91,45 @@ public class UploadEeg extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.profile:
-                Intent intent1 =new Intent(UploadEeg.this , MyProfile.class);
+                Intent intent1 =new Intent(UploadEEG.this , MyProfile.class);
                 startActivity(intent1);
                 return true;
             case R.id.seizureHistory:
-                Intent intent2 =new Intent(UploadEeg.this ,SeizureHistory.class);
+                Intent intent2 =new Intent(UploadEEG.this ,SeizureHistory.class);
                 startActivity(intent2);
                 return true;
 
             case R.id.medicalRecord:
-                Intent intent3 =new Intent(UploadEeg.this , MedicalRecord.class);
+                Intent intent3 =new Intent(UploadEEG.this , MedicalRecord.class);
                 startActivity(intent3);
                 return true;
 
             case R.id.symptoms:
-                Intent intent4 =new Intent(UploadEeg.this , Symptoms.class);
+                Intent intent4 =new Intent(UploadEEG.this , Symptoms.class);
                 startActivity(intent4);
                 return true;
 
             case R.id.connectionRequest:
-                Intent intent5 =new Intent(UploadEeg.this , ConnectionRequest.class);
+                Intent intent5 =new Intent(UploadEEG.this , ConnectionRequest.class);
                 startActivity(intent5);
                 return true;
             case R.id.connectionHistory:
-                Intent intent8 =new Intent(UploadEeg.this , HistoryConnection.class);
+                Intent intent8 =new Intent(UploadEEG.this , HistoryConnection.class);
                 startActivity(intent8);
                 return true;
 
             case R.id.diet:
-                Intent intent6 =new Intent(UploadEeg.this , Diet.class);
+                Intent intent6 =new Intent(UploadEEG.this , Diet.class);
                 startActivity(intent6);
                 return true;
 
-            case R.id.alarm:
-                Intent intent7 =new Intent(UploadEeg.this , Alarm.class);
-                startActivity(intent7);
-                return true;
+
             case R.id.question:
-                Intent intent10 =new Intent(UploadEeg.this , FrequentQuestion.class);
+                Intent intent10 =new Intent(UploadEEG.this , FrequentQuestion.class);
                 startActivity(intent10);
                 return true;
             case R.id.logout:
-                Intent intent9 =new Intent(UploadEeg.this , Login.class);
+                Intent intent9 =new Intent(UploadEEG.this , Login.class);
                 startActivity(intent9);
                 return true;
             default:

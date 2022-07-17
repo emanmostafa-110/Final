@@ -4,12 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.afinal.Alarm.Alarm;
 import com.example.afinal.Connection.ConnectionRequest;
 import com.example.afinal.Connection.HistoryConnection;
 import com.example.afinal.Information.Diet;
@@ -20,16 +21,88 @@ import com.example.afinal.Symptoms;
 import com.example.afinal.UI.Login;
 import com.example.afinal.UI.MyProfile;
 
+import java.io.File;
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 
 public class EMGResult extends AppCompatActivity {
 
-    EditText classificationEMG ,probabilityNonEMG,probabilitySeizureEMG;
-    Button saveEMG;
+    EditText classification,seizure,nonSeizure;
+    Button save;
+    String class_name,seizureProbability,nonSeizureProbability;
+    File file;
+    final String type="EMG";
+    String url = "http://epilepsy.novel-eg.com/public/api/storeSignal";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emgresult);
+
+        classification = findViewById(R.id.classificationEMG);
+        seizure = findViewById(R.id.probabilitySeizureEMG);
+        nonSeizure = findViewById(R.id.probabilityNonEMG);
+        save = findViewById(R.id.saveEMG);
+
+        class_name = getIntent().getStringExtra("classification");
+        seizureProbability = getIntent().getStringExtra("seizureProbability");
+        nonSeizureProbability = getIntent().getStringExtra("nonSeizureProbability");
+        file = (File) getIntent().getExtras().get("file");
+
+        classification.setText(class_name);
+        seizure.setText(seizureProbability);
+        nonSeizure.setText(nonSeizureProbability);
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadInformation(url, file, type, class_name, seizureProbability, nonSeizureProbability);
+            }
+        });
+    }
+
+    private void uploadInformation(String url,File file,String type,String class_name,String seizureProbability, String nonSeizureProbability) {
+
+        RequestBody requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM)
+                .addFormDataPart("file",file.getName(),RequestBody.create(MediaType.parse("file/*"),file))
+                .addFormDataPart("type",type)
+                .addFormDataPart("classification",class_name)
+                .addFormDataPart("prop_of_seiz", seizureProbability)
+                .addFormDataPart("prop_of_non_seiz", nonSeizureProbability)
+                .build();
+
+        Request request=new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(EMGResult.this, "Successful", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
 
     }
 
@@ -76,10 +149,7 @@ public class EMGResult extends AppCompatActivity {
                 startActivity(intent6);
                 return true;
 
-            case R.id.alarm:
-                Intent intent7 =new Intent(EMGResult.this , Alarm.class);
-                startActivity(intent7);
-                return true;
+
             case R.id.question:
                 Intent intent10 =new Intent(EMGResult.this , FrequentQuestion.class);
                 startActivity(intent10);
